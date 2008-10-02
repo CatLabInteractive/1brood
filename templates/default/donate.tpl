@@ -14,7 +14,8 @@
 <pre>
 Thijs Van der Schaeghe
 Edelarendries 4
-B - 9820 Bottelare
+B-9820 Bottelare
+
 Rek.: 001-3178512-92
 </pre>
 

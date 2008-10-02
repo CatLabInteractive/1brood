@@ -9,4 +9,14 @@
 	<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
 </form>
 
+<p>Verstuur je liever per overschrijving of stuur je me graag een gratis lunch, beide kunnen gebeuren naar:</p>
+
+<pre>
+001 - 3178512 - 92
+
+Thijs Van der Schaeghe
+Edelarendries 4
+B - 9820 Bottelare
+</pre>
+
 <p>Wij danken u voor uw gulle schenking :-)</p>

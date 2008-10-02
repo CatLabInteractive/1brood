@@ -141,6 +141,17 @@ class Pages_Page
 				)
 			);
 		}
+		
+		// Some absolute URL's
+		$page->addListValue
+		(
+			'menu',
+			array
+			(
+				'Forum',
+				'http://forum.neuroninteractive.eu/'
+			)
+		);
 
 		return $page->parse ('blocks/menu.tpl');
 	}

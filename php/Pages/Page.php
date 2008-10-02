@@ -145,13 +145,24 @@ class Pages_Page
 		// Some absolute URL's
 		$page->addListValue
 		(
-			'menu',
+			'menu2',
 			array
 			(
 				'Forum',
-				'http://forum.neuroninteractive.eu/'
+				'http://forum.neuroninteractive.eu/index.php?c=2'
 			)
 		);
+		
+		$page->addListValue
+		(
+			'menu2',
+			array
+			(
+				'Donate',
+				'http://forum.neuroninteractive.eu/index.php?c=2'
+			)
+		);
+
 
 		return $page->parse ('blocks/menu.tpl');
 	}

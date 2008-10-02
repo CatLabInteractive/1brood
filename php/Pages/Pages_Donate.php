@@ -18,6 +18,7 @@ class Pages_Donate extends Pages_Page
 		
 		
 		
+		
 		return $page->parse ('donate.tpl');
 	}
 }

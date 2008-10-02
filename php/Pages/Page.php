@@ -153,15 +153,18 @@ class Pages_Page
 			)
 		);
 		
-		$page->addListValue
-		(
-			'menu2',
-			array
+		if ($login->isLogin ())
+		{
+			$page->addListValue
 			(
-				'Donaties',
-				self::getUrl ('page=donate')
-			)
-		);
+				'menu2',
+				array
+				(
+					'Donaties',
+					self::getUrl ('page=donate')
+				)
+			);
+		}
 
 
 		return $page->parse ('blocks/menu.tpl');

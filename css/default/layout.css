@@ -430,3 +430,11 @@ p.true
 	border: 1px solid green;
 	padding: 5px 7px;
 }
+
+pre 
+{
+	line-height: 125%;
+	padding: 15px;
+	border: 1px solid gold;
+	background: #FFFFD8;
+}

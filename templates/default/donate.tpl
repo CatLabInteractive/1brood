@@ -11,7 +11,7 @@
 
 <p>Verstuur je liever per overschrijving of stuur je me graag een gratis lunch, beide kunnen gebeuren naar:</p>
 
-<pre style="line-height: 125%;">
+<pre>
 Rek.: 001-3178512-92
 Thijs Van der Schaeghe
 Edelarendries 4

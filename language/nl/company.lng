@@ -1,0 +1,71 @@
+[add]
+title = "Bedrijf toevoegen"
+about = "Volg deze eenvoudige stappen om jouw bedrijf toe te voegen aan 1Brood."
+contactDetails = "Bedrijfsinformatie"
+submit = "Bedrijf toevoegen"
+company = "Bedrijfsnaam"
+adres = "Adres"
+postcode = "Postcode"
+gemeente = "Gemeente"
+completeForm = "Vul alsjeblieft alle velden in."
+companyFound = "Er is al een bedrijf met deze naam. De namen moeten uniek zijn. Voeg eventueel de locatie van uw afdeeling in."
+
+[overview]
+title = "Bedrijvsoverzicht: @@0"
+notFound = "Verkeerde invoer"
+notFoundA = "Ik kon dit bedrijf niet vinden. Controlleer je invoer of contacteer een administrator."
+naam = "Naam"
+adres = "Adres"
+users = "Medewerkers"
+listusers = "Medewerkers"
+noUsers = "Er zijn voorlopig nog geen gebruikers."
+useradmin = "Gebruikers beheren"
+shops = "Aantal winkels"
+listshops = "Winkels"
+noShops = "Dit bedrijf is nog niet verbonden aan een winkel."
+moderate = "aanpassen"
+shopadmin = "Winkels beheren"
+poefboek = "Poefboek aanvullen"
+poeftotal = "Poef in kas"
+
+[userstatus]
+user = "Gebruiker"
+moderator = "Moderator"
+administrator = "Administrator"
+pending = "Wachtend op activatie"
+
+[shopman]
+title = "@@0 Winkelbeheer"
+noPermission = "Je hebt het recht niet hier te zijn. Het spijt ons vreselijk, maar ... ga weg!"
+about = "Elk bedrijf kan een of meerdere bestellijstjes bijhouden: winkels genaamd. Winkels hebben hun eigen moderators die de prijslijsten bepalen. Als je een winkel toevoegd, wordt je automatisch moderator van die winkel."
+toAddShop = "om een nieuwe, onbestaande winkel toe te voegen."
+conToAdd = "Ben je zeker dat de winkel niet in de 'Bestaande Lijst' staat?"
+remove = "verwijder"
+conRem = "Ben je zeker dat je deze winkel wilt verwijderen?"
+noShops = "Er zijn nog geen shops toegevoegd. Link een shop aan het bedrijf en 'let the ordering begin!'"
+addShopTitle = "Een winkel toevoegen"
+selectShop = "Selecteer een bestaande winkel"
+submitAdd = "Winkel toevoegen"
+
+[userman]
+title = "@@0 Gebruikersbeheer"
+noUsers = "Er zijn nog geen gebruikers toegevoegd."
+submit = "Gebruikerslijst aanpassen"
+remove = "Verwijder gebruiker"
+adminWarning = "Opgepast: Er kan slechts 1 administrator per bedrijf zijn."
+
+[poefboek]
+title = "@@0 Poefboek beheer"
+noUsers = "Er zijn nog geen gebruikers toegevoegd."
+submit = "Geld toevoegen"
+about = "Kies een positief bedrag om de poefboek balans positiever te maken, kies een negatief bedrag om de poefboek balans naar beneden te trekken. De waarde die u ingeeft wordt bij het poefboek bedrag opgeteld! Het bedrag wordt dus niet vervangen door het door jou ingegeven bedrag!"
+
+[poeflog]
+poeflog = "Poefboek Logs"
+nologs = "Er zijn nog geen poefboek logs."
+order = "Bestelling"
+return = "Ga terug naar bedrijfsoverzicht"
+datum = "Datum"
+amount = "Toevoeging"
+balance = "N. Balans"
+actor = "Uitvoerder"

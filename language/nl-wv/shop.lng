@@ -1,0 +1,12 @@
+[addShop]
+title = "Winkel toevoegen"
+about = "Door een winkel toe te voegen wordt je moderator van deze winkel."
+shop = "Naam"
+adres = "Adres"
+postcode = "Postcode"
+gemeente = "Gemeente"
+email = "E-mail"
+submit = "Voeg winkel toe"
+completeForm = "Vul alsjeblieft alle velden in."
+noLogin = "Je moet ingelogd zijn om een winkel te kunnen toevoegen."
+done = "De winkel is toegevoegd."

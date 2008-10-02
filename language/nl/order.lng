@@ -1,0 +1,36 @@
+[main]
+title = "Bestellen: @@0 - @@1"
+
+[products]
+order = "bestel"
+noProducts = "Er zijn nog geen producten toegevoegd."
+products = "Producten"
+poefboek = "Jouw huidige poefboek balans: @@0 @@1"
+
+[choose]
+title = "Bestellen: kies uw bedrijf & winkel"
+notLoggedIn = "Je moet inloggen voor je kan bestellen."
+about = "Selecteer het bedrijf en de winkel vanwaar je wilt bestellen."
+noCompanies = "Je bent nog niet ingeschreven in een bedrijf."
+
+[addProduct]
+done = "Bedankt voor je bestelling!"
+back = "Terug naar overzicht"
+about = "U staat op het punt het volgende te bestellen:"
+
+[submit]
+title = "Wachtende bestellingen"
+products = "@@0 producten in de wachtrij."
+company = "Bedrijf"
+shop = "Zaak"
+listProducts = "Bestelling"
+submit = "Bestelling afsluiten en opsturen"
+confirmSubmit = "Ben je zeker dat iedereen zijn lunch besteld heeft?"
+thanks = "Bedankt! ;-)"
+sendMail = "Verstuur bestelling via mail"
+email = "E-mail adres"
+sendIt = "Verstuur nu"
+printIt = "Afdrukken"
+sended = "Uw bestelling is verzonden."
+printMail = "Print bestelling"
+mOrder = "Bestelling @@0 @@1"

@@ -158,8 +158,8 @@ class Pages_Page
 			'menu2',
 			array
 			(
-				'Donate',
-				'http://forum.neuroninteractive.eu/index.php?c=2'
+				'Donaties',
+				self::getUrl ('page=donate')
 			)
 		);
 

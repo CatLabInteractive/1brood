@@ -12,8 +12,7 @@
 <p>Verstuur je liever per overschrijving of stuur je me graag een gratis lunch, beide kunnen gebeuren naar:</p>
 
 <pre>
-001 - 3178512 - 92
-
+Rek.: 001-3178512-92
 Thijs Van der Schaeghe
 Edelarendries 4
 B - 9820 Bottelare

@@ -1,6 +1,6 @@
 <h2>Donaties</h2>
 
-<p>Deze site wordt online gehouden dankzij donaties. Zolang de donaties hoger zijn dan de serverkosten, gaan we ermee door.</p>
+<p>Deze site wordt online gehouden dankzij donaties. <br />Zolang de donaties hoger zijn dan de serverkosten, gaan we ermee door.</p>
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
 	<input type="hidden" name="cmd" value="_s-xclick">

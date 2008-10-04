@@ -190,10 +190,9 @@ class Core_Tools
 
 	public static function putIntoText ($text, $ar = array(), $delimiter = '@@') 
 	{
-		$k = 0;
-		foreach ($ar as $v) {
+		foreach ($ar as $k => $v) 
+		{
 			$text = str_replace ($delimiter.$k, $v, $text);
-			$k ++;
 		}
 		return $text;
 	}

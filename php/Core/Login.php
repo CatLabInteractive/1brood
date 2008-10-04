@@ -175,6 +175,41 @@ class Core_Login
 	
 	}
 	
+	public function setPassword ($userId, $newPassword)
+	{
+		$db = Core_Database::__getInstance ();
+		
+		$user = $db->select
+		(
+			'players',
+			array ('*'),
+			"plid = ".intval ($userId)
+		);
+		
+		if (count ($user) != 1)
+		{
+			return false;
+		}
+	
+		/* Make new password */
+		$hash1 = md5 ($newPassword);
+		$hash2 = $user[0]['password2'];
+		$hash = md5 ('there'.$hash2.'and back'.$hash1.'again');
+		
+		$db->update
+		(
+			'players',
+			array 
+			(
+				'password1' => $hash,
+				'seckey' => ''
+			),
+			"plid = '{$user[0]['plid']}'"
+		);
+		
+		return true;
+	}
+	
 	public static function checkLoginDetails ($email, $password)
 	{
 		$db = Core_Database::__getInstance ();

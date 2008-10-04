@@ -12,6 +12,8 @@ if ($_SERVER['SERVER_NAME'] == 'daedelserv.local' || $_SERVER['SERVER_NAME'] == 
 	define ('DB_PASSWORD', 'myuser');
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', '1brood');
+	
+	define ('ABSOLUTE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/1brood/');
 }
 else
 {
@@ -19,6 +21,8 @@ else
 	define ('DB_PASSWORD', 'Slwopza45b');
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', 'b6557bro_brood');
+	
+	define ('ABSOLUTE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
 }
 
 define ('TIME_ZONE', 'Europe/Brussels');

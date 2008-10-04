@@ -44,5 +44,9 @@
 		</div>
 		
 	</form>
+	
+	<p style="margin-top: 10px; text-align: center;">
+		<a href="<?=$lostpass_url?>"><?=$lostpass?></a>
+	</p>
 
 <?php } ?>

@@ -79,7 +79,7 @@ class Pages_Page
 	/* Various */
 	public static function getUrl ($url)
 	{
-		return STATIC_URL . '?' . $url;
+		return ABSOLUTE_URL . '?' . $url;
 	}
 
 	/* Page specific functions */
@@ -183,7 +183,8 @@ class Pages_Page
 
 		$page->set ('login', $text->get ('login', 'login', 'main'));
 		$page->set ('logout', $text->get ('logout', 'login', 'main'));
-		$page->set ('logout_url', self::getUrl ($_SERVER['QUERY_STRING'].'&logout=true'));
+		$page->set ('logout_url', self::getUrl ('page=home&logout=true'));
+		$page->set ('loginAction', self::getUrl ('page=home'));
 		
 		if ($username && $password)
 		{
@@ -230,6 +231,9 @@ class Pages_Page
 			$page->set ('email', $text->get ('email', 'login', 'main'));
 			$page->set ('password', $text->get ('password', 'login', 'main'));
 			$page->set ('submit', $text->get ('submit', 'login', 'main'));
+			
+			$page->set ('lostpass', $text->get ('lostpass', 'login', 'main'));
+			$page->set ('lostpass_url', self::getUrl ('page=lostPassword'));
 		}
 
 		return $page->parse ('blocks/login.tpl');

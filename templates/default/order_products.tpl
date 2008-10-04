@@ -1,6 +1,6 @@
 <h2><?php echo $title; ?></h2>
 
-<?php if ($poefboek_value > -5) { ?>
+<?php if ($poefboek_value > 0) { ?>
 	<p class="true" style="text-align: center;"><?=$poefboek?></p>
 <?php } else { ?>
 	<p class="false" style="text-align: center;"><?=$poefboek?></p>

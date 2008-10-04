@@ -19,14 +19,16 @@
 			<span class="details"><?php echo $details; ?></span>
 		</p>
 		
-		<ul style="list-style-type: none; padding-left: 0px;">
-			<?php foreach ($list_prices as $v) { ?>
-				<li>
-					<input type="radio" name="price" id="price_<?=$v['id']?>" value="<?=$v['id']?>" <?php if ($v['checked']) { ?>checked="checked"<?php } ?> /> 
-					<label for="price_<?=$v['id']?>" style="display: inline; margin: 0px;"><?=$v['name']?> (&euro; <?=$v['price']?>)</label>
-				</li>
-			<?php } ?>
-		</ul>
+		<?php if (isset ($list_prices)) { ?>
+			<ul style="list-style-type: none; padding-left: 0px;">
+				<?php foreach ($list_prices as $v) { ?>
+					<li>
+						<input type="radio" name="price" id="price_<?=$v['id']?>" value="<?=$v['id']?>" <?php if ($v['checked']) { ?>checked="checked"<?php } ?> /> 
+						<label for="price_<?=$v['id']?>" style="display: inline; margin: 0px;"><?=$v['name']?> (&euro; <?=$v['price']?>)</label>
+					</li>
+				<?php } ?>
+			</ul>
+		<?php } ?>
 		
 		<label>
 			Aantal: <br />

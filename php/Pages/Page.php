@@ -149,7 +149,7 @@ class Pages_Page
 			array
 			(
 				'Forum',
-				'http://forum.neuroninteractive.eu/index.php?c=2'
+				'http://forum.neuroninteractive.eu/viewforum.php?f=3'
 			)
 		);
 		

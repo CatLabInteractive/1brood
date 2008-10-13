@@ -4,14 +4,14 @@
 
 	<head>
 	
-		<?php /*if (defined ('GOOGLE_ANALYTICS')) { ?>
+		<?php if (defined ('GOOGLE_ANALYTICS')) { ?>
 			<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
 			</script>
 			<script type="text/javascript">
 			_uacct = "<?php echo GOOGLE_ANALYTICS; ?>";
 			urchinTracker();
 			</script>
-		<?php }*/ ?>
+		<?php } ?>
 		
 		<title><?php echo $title; ?></title>
 

@@ -30,6 +30,12 @@
 		<div id="container">
 		
 			<h1><?php echo $title; ?></h1>
+			
+			<p class="false" style="text-align: center; line-height: 1.5;">
+				Op 6 december 2008 loopt ons server contract af.<br />
+				Tenzij er tegen deze datum een sponsor gevonden wordt, zal 1Brood offline gaan.<br />
+				Geïnteresseerd? Stuur me een <a href="mailto:daedelson@gmail.com">mail</a>.
+			</p>
 
 			<div id="left">
 		

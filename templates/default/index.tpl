@@ -30,12 +30,6 @@
 		<div id="container">
 		
 			<h1><?php echo $title; ?></h1>
-			
-			<p class="false" style="text-align: center; line-height: 1.5;">
-				Op 6 december 2008 loopt ons server contract af.<br />
-				Tenzij er tegen deze datum een sponsor gevonden wordt, zal 1Brood offline gaan.<br />
-				Geïnteresseerd? Stuur me een <a href="mailto:daedelson@gmail.com">mail</a>.
-			</p>
 
 			<div id="left">
 		
@@ -47,9 +41,16 @@
 					<?php echo $basket; ?>
 				</div>
 
-				<div id="login">
+				<div id="login" style="padding-bottom: 60px;">
 					<?php echo $login; ?>
 				</div>
+				
+				<!-- Sponsor! -->
+				<p style="position: absolute; bottom: 70px; font-size: 9px;">Powered by<br />
+					<a href="http://www.nomadesk.com/" target="_BLANK">
+						<img src="<?=IMAGE_URL?>Nomadesk-Logo.jpg" style="border: none;" />
+					</a>
+				</p>
 				
 			</div>
 

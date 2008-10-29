@@ -6,7 +6,7 @@
 
 define ('APP_VERSION', 0.2);
 
-if ($_SERVER['SERVER_NAME'] == 'daedelserv.local' || $_SERVER['SERVER_NAME'] == 'thijsvanderschaeghe.no-ip.com')
+if ($_SERVER['SERVER_NAME'] == 'daedelserv.local' || $_SERVER['SERVER_NAME'] == 'daedeloth.no-ip.org')
 {
 	define ('DB_USERNAME', 'myuser');
 	define ('DB_PASSWORD', 'myuser');
@@ -34,7 +34,7 @@ define ('DEFAULT_TEMPLATE_DIR', 'templates/default');
 
 define ('STATIC_URL', '');
 
-define ('IMAGE_URL', 'images/');
+define ('IMAGE_URL', ABSOLUTE_URL.'images/');
 define ('LANGUAGE_DIR', 'language/'); 
 define ('TEMPLATES_DIR', 'templates/');
 

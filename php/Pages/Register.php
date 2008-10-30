@@ -165,15 +165,19 @@ class Pages_Register extends Pages_Page
 			$companies = Profile_Company::getCompanies ();
 			foreach ($companies as $v)
 			{
-				$page->addListValue
-				(
-					'companies',
-					array
+				$name = $v->getName ();
+				if (!empty ($name))
+				{
+					$page->addListValue
 					(
-						$v->getName (),
-						$v->getId ()
-					)
-				);
+						'companies',
+						array
+						(
+							$v->getName (),
+							$v->getId ()
+						)
+					);
+				}
 			}
 
 			$page->set ('chooseComp', $text->get ('chooseComp'));

@@ -18,10 +18,12 @@
 			<th style="width: 40%;"><?=$this->getText ('comments')?></th>
 			<th style="text-align: right;"><?=$this->getText ('add')?></th>
 		</tr>
-	
+	<?php $i = 0; ?>
 	<?php foreach ($list_users as $v) { ?>
 
-		<tr>
+		<?php $i ++; ?>
+		<tr class="<?=$i % 2 ? 'row1' : 'row2'?>">
+		
 			<td><?php echo $v[0]; ?></td>
 			<td style="text-align: center;">&euro;  <?php echo $v[1]; ?></td>
 			

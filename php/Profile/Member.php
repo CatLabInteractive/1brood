@@ -225,5 +225,10 @@ class Profile_Member
 			}
 		}
 	}
+	
+	public function sendReminder ($company)
+	{
+		
+	}
 }
 ?>

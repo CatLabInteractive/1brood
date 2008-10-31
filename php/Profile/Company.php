@@ -584,7 +584,7 @@ class Profile_Company
 		
 		foreach ($users as $v)
 		{
-			$v->sendReminder ($company);
+			$v[0]->sendReminder ($company);
 		}
 	}
 }

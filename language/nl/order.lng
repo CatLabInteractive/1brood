@@ -6,6 +6,7 @@ order = "bestel"
 noProducts = "Er zijn nog geen producten toegevoegd."
 products = "Producten"
 poefboek = "Jouw huidige poefboek balans: @@0 @@1"
+reminder = "Vul je poefboek zo snel mogelijk aan bij de lunch verantwoordelijke."
 
 [choose]
 title = "Bestellen: kies uw bedrijf & winkel"

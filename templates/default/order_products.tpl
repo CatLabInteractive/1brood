@@ -1,9 +1,14 @@
 <h2><?php echo $title; ?></h2>
 
+<?php $this->setTextSection ('products', 'order'); ?>
+
 <?php if (intval ($poefboek_value) >= 0) { ?>
 	<p class="true" style="text-align: center;"><?=$poefboek?></p>
 <?php } else { ?>
-	<p class="false" style="text-align: center;"><?=$poefboek?></p>
+	<p class="false" style="text-align: center;">
+		<?=$poefboek?><br />
+		<?=$this->getText ('reminder')?>
+	</p>
 <?php } ?>
 
 <?php if (!empty ($message)) { ?>

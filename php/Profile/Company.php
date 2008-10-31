@@ -141,6 +141,19 @@ class Profile_Company
 		return $o;
 	}
 	
+	public function getOwner ()
+	{
+		$users = $this->getUsers ();
+		foreach ($users as $v)
+		{
+			if ($v[1] == 'administrator')
+			{
+				return $v[0];
+			}
+		}
+		return false;
+	}
+	
 	public function getCompStatusTranslation ($id)
 	{
 		switch ($id)
@@ -584,7 +597,7 @@ class Profile_Company
 		
 		foreach ($users as $v)
 		{
-			$v[0]->sendReminder ($company);
+			$v[0]->sendReminder ($this);
 		}
 	}
 }

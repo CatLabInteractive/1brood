@@ -228,7 +228,27 @@ class Profile_Member
 	
 	public function sendReminder ($company)
 	{
+		$text = Core_Text::__getInstance ();
+		$text->setFile ('account');
+		$text->setSection ('reminder');
+	
+		$email = $this->getEmail ();
 		
+		// Get company owner
+		$owner = $company->getOwner ();
+		
+		if ($owner)
+		{
+			Core_Tools::sendMail 
+			(
+				$text->get ('subject'), 
+				Core_Tools::output_text ($text->getFile ('mails/reminder')),
+				$email, 
+				$this->getFullname (), 
+				$owner->getFullname (), 
+				$owner->getEmail ()
+			);
+		}
 	}
 }
 ?>

@@ -33,3 +33,6 @@ pending = "Bedrijven in de wachtrij"
 aboutPending = "Zodra je aanvraag voor een bedrijf verstuurd is, zal de moderator van dat bedrijf jouw aanvraag beoordelen. Contacteer je moderator om dit proces te versnellen."
 toAddCompanie = "om een ander bedrijf toe te voegen."
 poeflog = "Poefboek log"
+
+[reminder]
+

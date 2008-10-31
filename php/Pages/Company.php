@@ -173,6 +173,8 @@ class Pages_Company extends Pages_Page
 					),
 					"c_id = ".$objCompany->getId ()
 				);
+				
+				header ('Location: '.self::getUrl ('page=company&id='.$objCompany->getId ()));
 			}
 			
 			$objCompany->reloadData ();
@@ -269,6 +271,9 @@ class Pages_Company extends Pages_Page
 				{
 					$page->set ('admin_user_link', self::getUrl ('page=company&id='.$objCompany->getId ().'&action=userman'));
 					$page->set ('admin_user', $text->get ('useradmin'));
+					
+					$page->set ('admin_edit_link', self::getUrl ('page=company&id='.$objCompany->getId ().'&action=edit'));
+					$page->set ('admin_edit', $text->get ('edit'));
 				}
 				
 				if ($myStatus == 'moderator' || $myStatus == 'administrator')

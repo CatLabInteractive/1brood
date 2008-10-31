@@ -1,16 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.6
+-- version 2.11.8.1deb1
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generatie Tijd: 02 Oct 2008 om 23:44
+-- Generatie Tijd: 31 Oct 2008 om 17:56
 -- Server versie: 5.0.51
--- PHP Versie: 5.2.6
+-- PHP Versie: 5.2.6-3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `b6557bro_brood`
+-- Database: `1brood`
 --
 
 -- --------------------------------------------------------
@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS `companies` (
   `c_adres` varchar(100) NOT NULL,
   `c_postcode` varchar(15) NOT NULL,
   `c_gemeente` varchar(100) NOT NULL,
+  `c_hour` tinyint(4) NOT NULL default '-1',
   PRIMARY KEY  (`c_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
@@ -66,6 +67,18 @@ CREATE TABLE IF NOT EXISTS `companies_shop` (
   `s_id` int(11) NOT NULL,
   PRIMARY KEY  (`c_id`,`s_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Tabel structuur voor tabel `im_users`
+--
+
+CREATE TABLE IF NOT EXISTS `im_users` (
+  `im_user` varchar(50) NOT NULL,
+  `im_player` int(11) NOT NULL,
+  PRIMARY KEY  (`im_user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -92,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `order_prods` (
   `op_id` int(11) NOT NULL auto_increment,
   `o_id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL,
-  `p_pid` int(11) NOT NULL default '0',
+  `p_pid` tinyint(4) NOT NULL default '0',
   `plid` int(11) NOT NULL,
   `op_message` varchar(255) character set utf8 collate utf8_unicode_ci NOT NULL,
   `op_amount` int(11) NOT NULL,
@@ -115,6 +128,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `activated` tinyint(1) NOT NULL,
   `firstname` varchar(100) collate utf8_unicode_ci NOT NULL,
   `lastname` varchar(100) collate utf8_unicode_ci NOT NULL,
+  `seckey` varchar(8) collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`plid`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -148,6 +162,7 @@ CREATE TABLE IF NOT EXISTS `players_poefboeklog` (
   `l_date` datetime NOT NULL,
   `l_action` enum('order','moderator') NOT NULL,
   `l_actor` int(11) NOT NULL,
+  `l_description` varchar(250) character set utf8 collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`l_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1;
 
@@ -175,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `c_id` int(11) NOT NULL default '0',
   `p_name` varchar(100) NOT NULL,
   `p_info` varchar(250) NOT NULL,
-  `p_price` varchar(55) NOT NULL,
+  `p_price` varchar(255) NOT NULL,
   PRIMARY KEY  (`p_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 

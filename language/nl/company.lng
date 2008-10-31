@@ -41,6 +41,7 @@ moderate = "aanpassen"
 shopadmin = "Winkels beheren"
 poefboek = "Poefboek aanvullen"
 poeftotal = "Poef in kas"
+edit = "Gegevens aanpassen"
 
 [userstatus]
 user = "Gebruiker"

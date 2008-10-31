@@ -1,3 +1,9 @@
+<?php if (isset ($admin_edit_link)) { ?>
+	<p class="rightLink">
+		<a href="<?php echo $admin_edit_link; ?>"><?php echo $admin_edit; ?></a>
+	</p>
+<?php } ?>
+
 <h2><?php echo $title; ?></h2>
 
 <?php if (isset ($notFound)) { ?>

@@ -130,27 +130,44 @@ class Pages_API extends Pages_Page
 		$db = Core_Database::__getInstance ();
 	
 		$hour = date ('H');
+		$day = date ('w');
 		
-		// Select all companies
-		$companies = $db->select
-		(
-			'companies',
-			array ('*'),
-			"c_hour = ".intval ($hour)
-		);
+		if ($day > 0 && $day < 6)
+		{		
+			// Select all companies
+			$companies = $db->select
+			(
+				'companies',
+				array ('*'),
+				"c_hour = ".intval ($hour)
+			);
 		
-		echo '<pre>';
+			echo '<pre>';
 		
-		echo 'It\'s '.$hour.', time for reminders!' . "\n";
+			echo 'It\'s '.$hour.', time for reminders!' . "\n";
 		
-		foreach ($companies as $v)
-		{
-			$company = Profile_Company::getCompany ($v['c_id']);
-			echo 'Sending mails to '.$company->getName ().".\n";
+			$count ++;
+			foreach ($companies as $v)
+			{
+				$company = Profile_Company::getCompany ($v['c_id']);
+				echo 'Sending mails to '.$company->getName ().".\n";
 			
-			$company->sendReminders ();
+				$company->sendReminders ();
+				
+				$count ++;
+			}
+			
+			if ($count == 0)
+			{
+				echo 'No reminders were sent.';
+			}
+			
+			echo '</pre>';
 		}
-		echo '</pre>';
+		else
+		{
+			echo '<pre>It\'s weekend.</pre>';
+		}
 	}
 }
 ?>

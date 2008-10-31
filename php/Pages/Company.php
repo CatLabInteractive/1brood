@@ -60,7 +60,7 @@ class Pages_Company extends Pages_Page
 			$postcode = Core_Tools::getInput ('_POST', 'postcode', 'varchar', false);
 			$gemeente = Core_Tools::getInput ('_POST', 'gemeente', 'varchar', false);
 
-			if ($company && $adres && $postcode && $gemeente)
+			if (!empty ($company) && $company && $adres && $postcode && $gemeente)
 			{
 				
 				// Little check
@@ -160,12 +160,15 @@ class Pages_Company extends Pages_Page
 			
 			if (isset ($_POST['submit']))
 			{
+				$cname = !empty ($_POST['company']) ? 
+					Core_Tools::getInput ('_POST', 'company', 'varchar', $data['c_name']) : $data['c_name'];
+			
 				$db->update
 				(
 					'companies',
 					array
 					(
-						'c_name' => Core_Tools::getInput ('_POST', 'company', 'username', $data['c_name']),
+						'c_name' => $cname,
 						'c_adres' => Core_Tools::getInput ('_POST', 'adres', 'varchar', $data['c_adres']),
 						'c_postcode' => Core_Tools::getInput ('_POST', 'postcode', 'varchar', $data['c_postcode']),
 						'c_gemeente' => Core_Tools::getInput ('_POST', 'gemeente', 'varchar', $data['c_gemeente']),

@@ -11,11 +11,14 @@
 			<th><?=$actor?></th>
 		</tr>
 	
+		<?php $i = 0; ?>
 		<?php foreach ($list_logs as $log) { ?>
-		<tr>
-			<td style="width: 33%; text-align: center;"><?=$log['date']?></td>
+		
+		<?php $i ++; ?>
+		<tr class="<?=$i % 2 ? 'row1' : 'row2'?>">
+			<td style="width: 30%; text-align: center;"><?=$log['date']?></td>
 			
-			<td style="text-align: center; width: 17%;">
+			<td style="text-align: center; width: 20%;">
 			
 				<?php if ($log['amount'] >= 0) { ?>
 					+ &euro; <?php echo Core_Tools::convert_price (abs ($log['amount'])); ?>
@@ -27,7 +30,7 @@
 				
 			</td>
 			
-			<td style="text-align: center; width: 17%;">
+			<td style="text-align: center; width: 20%;">
 			
 				<?php if ($log['newpoef'] >= 0) { ?>
 					<span style="color: #888888;">
@@ -43,6 +46,13 @@
 			
 			<td style="text-align: center;"><a href="<?=$log['actor_url']?>"><?=$log['actor_name']?></a></td>
 		</tr>
+		
+		<?php if (!empty ($log['comment'])) { ?>
+			<tr class="<?=$i % 2 ? 'row1' : 'row2'?>">
+				<td colspan="4" class="comment"><?=$log['comment']?></td>
+			</tr>
+		<?php } ?>
+		
 		<?php } ?>
 	
 	</table>

@@ -477,7 +477,8 @@ class Pages_Company extends Pages_Page
 						$member = Profile_Member::getMember (substr ($k, 4));
 						if ($member->isFound ())
 						{
-							$objCompany->addToMemberPoefboek ($member, $v);
+							$comment = Core_Tools::getInput ('_POST', 'comment_'.$k, 'varchar');
+							$objCompany->addToMemberPoefboek ($member, $v, 'moderator', $comment);
 							$count ++;
 						}
 					}
@@ -556,7 +557,8 @@ class Pages_Company extends Pages_Page
 							'amount' => Core_Tools::convert_price ($v['amount']),
 							'newpoef' => Core_Tools::convert_price ($v['newpoef']),
 							'actor_name' => $v['actor_name'],
-							'actor_url' => $v['actor_url']
+							'actor_url' => $v['actor_url'],
+							'comment' => Core_Tools::output_varchar ($v['comment'])
 						)
 					);
 				}

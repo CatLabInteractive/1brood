@@ -417,7 +417,7 @@ class Profile_Company
 		return $poef;
 	}
 	
-	public function addToMemberPoefboek ($objUser, $amount, $order = 'moderator')
+	public function addToMemberPoefboek ($objUser, $amount, $order = 'moderator', $comment = null)
 	{
 		$db = Core_Database::__getInstance ();
 		
@@ -444,7 +444,7 @@ class Profile_Company
 			$iNewAmount = $newAmount[0]['poefboek'];
 		}
 		
-		$this->addPoefboekLog ($objUser, $amount, $iNewAmount, $order);
+		$this->addPoefboekLog ($objUser, $amount, $iNewAmount, $order, false, $comment);
 	}
 
 	public function takeFromMemberPoefboek ($objUser, $amount, $order = 'order', $orderId = false)
@@ -478,7 +478,7 @@ class Profile_Company
 		$this->addPoefboekLog ($objUser, $amount * -1, $iNewAmount, $order, $orderId);
 	}
 	
-	private function addPoefboekLog ($objUser, $amount, $newAmount, $action, $actor = false)
+	private function addPoefboekLog ($objUser, $amount, $newAmount, $action, $actor = false, $comment = null)
 	{
 		if (!$actor)
 		{
@@ -500,7 +500,8 @@ class Profile_Company
 				'l_newpoef' => $newAmount,
 				'l_date' => 'NOW()',
 				'l_action' => $action,
-				'l_actor' => $actor
+				'l_actor' => $actor,
+				'l_description' => $comment
 			)
 		);
 	}
@@ -557,7 +558,8 @@ class Profile_Company
 				'amount' => $v['l_amount'],
 				'actor_name' => $actor_name,
 				'actor_url' => $actor_url,
-				'newpoef' => $v['l_newpoef']
+				'newpoef' => $v['l_newpoef'],
+				'comment' => $v['l_description']
 			);
 		}
 		

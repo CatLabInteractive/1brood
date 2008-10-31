@@ -249,6 +249,22 @@ table.data, table#products
 	margin-bottom: 15px;
 }
 
+table.data th
+{
+	background: #ddd;
+	border-bottom: 1px solid gray;
+}
+
+table.data tr.row1
+{
+	background: #eee;
+}
+
+table.data tr.row2
+{
+	background: #ddd;
+}
+
 table.data td, table.data th
 {
 	padding: 2px 4px 2px 4px;
@@ -437,4 +453,12 @@ pre
 	padding: 10px;
 	border: 1px solid gold;
 	background: #FFFFD8;
+}
+
+table.data td.comment
+{
+	text-align: center;
+	font-style: italic;
+	padding: 0px;
+	color: gray;
 }

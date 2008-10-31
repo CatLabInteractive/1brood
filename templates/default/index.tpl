@@ -37,7 +37,7 @@
 					<?php echo $menu; ?>
 				</div>
 
-				<div id="basket">
+				<div id="basket" class="noPrint">
 					<?php echo $basket; ?>
 				</div>
 
@@ -45,12 +45,14 @@
 					<?php echo $login; ?>
 				</div>
 				
-				<!-- Sponsor! -->
-				<p style="position: absolute; bottom: 70px; font-size: 9px;">Powered by<br />
-					<a href="http://www.nomadesk.com/" target="_BLANK">
-						<img src="<?=IMAGE_URL?>Nomadesk-Logo.jpg" style="border: none;" />
-					</a>
-				</p>
+				<div id="sponsor">
+					<!-- Sponsor! -->
+					<p style="position: absolute; bottom: 70px; font-size: 9px;">Powered by<br />
+						<a href="http://www.nomadesk.com/" target="_BLANK">
+							<img src="<?=IMAGE_URL?>Nomadesk-Logo.jpg" style="border: none;" />
+						</a>
+					</p>
+				</div>
 				
 			</div>
 

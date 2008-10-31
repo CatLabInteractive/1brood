@@ -18,6 +18,7 @@
 			<th style="width: 40%;"><?=$this->getText ('comments')?></th>
 			<th style="text-align: right;"><?=$this->getText ('add')?></th>
 		</tr>
+		
 	<?php $i = 0; ?>
 	<?php foreach ($list_users as $v) { ?>
 
@@ -41,7 +42,9 @@
 	<?php if ($formAction) { ?>
 
 		<tr>
-			<td colspan="4" style="text-align: right;"><button type="submit"><?php echo $submit; ?></button></td>
+			<td colspan="4" style="text-align: right;">
+				<button type="submit"><?php echo $submit; ?></button>
+			</td>
 		</tr>
 	
 		</table>

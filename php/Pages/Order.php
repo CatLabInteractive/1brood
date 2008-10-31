@@ -607,7 +607,7 @@ class Pages_Order extends Pages_Page
 		
 		$page = new Core_Template ();
 		
-		$page->set ('order', $this->getOrderOverview ($order, false));
+		$page->set ('order', $this->getOrderOverview ($order, true));
 		$page->set ('footer', $text->get ('printerFooter', 'main', 'main'));
 		
 		return $page->parse ('mailtemplate.tpl');

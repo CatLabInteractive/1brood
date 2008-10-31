@@ -5,6 +5,6 @@
 
 	<input type="hidden" name="confirmKey" value="<?=$confirmKey?>" />
 
-	<button type="submit"><?=$sendOrder?></button>
+	<button type="submit" class="noPrint"><?=$sendOrder?></button>
 
 </form>

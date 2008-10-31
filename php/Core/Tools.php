@@ -669,6 +669,61 @@ class Core_Tools
 
 		return $dur;
 	}
+	
+	public static function sendMail ($subject, $html, $email, $toName = "", $fromName = null, $fromEmail = null)
+	{
+		$mail = new Mailer_PHPMailer ();
+
+		$mail->IsHTML(true);
+		$mail->CharSet = 'UTF8';
+		
+		$useAuth = defined ('MAILER_USER') && defined ('MAILER_PASSWORD');
+
+		// Authenticate
+		$mail->Mailer = MAILER_MAILER;
+		$mail->SMTPAuth = $useAuth;
+		
+		$mail->Host = MAILER_HOST;
+		$mail->Port = MAILER_PORT;
+		
+		if ($useAuth)
+		{
+			$mail->Username = MAILER_USER;
+			$mail->Password = MAILER_PASSWORD;
+		}
+
+		// Make yourself.
+		if (defined ('MAILER_FROM'))
+		{
+			$mail->From = MAILER_FROM;
+		}
+		
+		if (isset ($fromName))
+		{
+			$mail->FromName = $fromName;
+		}
+		
+		if (isset ($fromEmail))
+		{
+			$mail->AddReplyTo ($fromEmail);
+		}
+		
+		//$mail->ConfirmReadingTo = $myself->getEmail ();
+
+		$mail->addAddress ($email, $toName);
+		
+		if (isset ($fromName) && isset ($fromEmail))
+		{
+			$mail->addCC ($fromEmail, $fromName);
+		}
+
+		$mail->Subject = $subject;
+		$mail->Body = $html;
+		
+		$mail->Priority = 2;
+
+		$mail->Send ();
+	}
 
 }
 

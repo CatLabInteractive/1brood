@@ -544,47 +544,16 @@ class Pages_Order extends Pages_Page
 	private function sendMail ($order, $email, $toName = "")
 	{
 		$myself = Profile_Member::getMyself ();
-	
-		$mail = new Mailer_PHPMailer ();
-
-		$mail->IsHTML(true);
-		$mail->CharSet = 'UTF8';
 		
-		$useAuth = defined ('MAILER_USER') && defined ('MAILER_PASSWORD');
-
-		// Authenticate
-		$mail->Mailer = MAILER_MAILER;
-		$mail->SMTPAuth = $useAuth;
-		
-		$mail->Host = MAILER_HOST;
-		$mail->Port = MAILER_PORT;
-		
-		if ($useAuth)
-		{
-			$mail->Username = MAILER_USER;
-			$mail->Password = MAILER_PASSWORD;
-		}
-
-		// Make yourself.
-		if (defined ('MAILER_FROM'))
-		{
-			$mail->From = MAILER_FROM;
-		}
-		
-		$mail->FromName = $myself->getFullname ();
-		
-		$mail->AddReplyTo ($myself->getEmail ());
-		//$mail->ConfirmReadingTo = $myself->getEmail ();
-
-		$mail->addAddress ($email, $toName);
-		$mail->addCC ($myself->getEmail (), $myself->getFullname ());
-
-		$mail->Subject = $this->getMailSubject ($order);
-		$mail->Body = $this->getMailBody ($order);
-		
-		$mail->Priority = 2;
-
-		$mail->Send ();
+		Core_Tools::sendMail 
+		(
+			$this->getMailSubject ($order), 
+			$this->getMailBody ($order), 
+			$email, 
+			$toName, 
+			$myself->getFullname (), 
+			$myself->getEmail ()
+		);
 	}
 	
 	private function getMailSubject ($order)

@@ -10,6 +10,20 @@ gemeente = "Gemeente"
 completeForm = "Vul alsjeblieft alle velden in."
 companyFound = "Er is al een bedrijf met deze naam. De namen moeten uniek zijn. Voeg eventueel de locatie van uw afdeeling in."
 
+[edit]
+title = "Bedrijf aanpassen"
+about = "Hier kunt u de instellingen van uw bedrijf aanpassen."
+contactDetails = "Bedrijfsinformatie"
+submit = "Bedrijf aanpassen"
+company = "Bedrijfsnaam"
+adres = "Adres"
+postcode = "Postcode"
+gemeente = "Gemeente"
+completeForm = "Vul alsjeblieft alle velden in."
+companyFound = "Er is al een bedrijf met deze naam. De namen moeten uniek zijn. Voeg eventueel de locatie van uw afdeeling in."
+reminder = "Herinnering; van maandag tot vrijdag"
+noReminder = "Geen herinnering"
+
 [overview]
 title = "Bedrijvsoverzicht: @@0"
 notFound = "Verkeerde invoer"

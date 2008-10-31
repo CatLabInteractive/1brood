@@ -15,6 +15,10 @@ class Pages_Company extends Pages_Page
 		{
 			return $this->getAddCompany ();
 		}
+		elseif ($action == 'edit' && $login->isLogin () && $objCompany->isFound ())
+		{
+			return $this->getEditCompany ($objCompany);
+		}
 		elseif ($action == 'shopman' && $objCompany->isFound ())
 		{
 			return $this->getShopManagement ($objCompany);
@@ -135,6 +139,75 @@ class Pages_Company extends Pages_Page
 			}
 
 			return $page->parse ('company_add.tpl');
+		}
+	}
+	
+	private function getEditCompany ($objCompany)
+	{
+		$myself = Profile_Member::getMyself ();
+		
+		$text = Core_Text::__getInstance ();
+		$text->setFile ('company');
+		$text->setSection ('edit');
+		
+		if ($objCompany->getUserStatus ($myself) == 'administrator')
+		{
+			// Values
+			$data = $objCompany->getData ();
+		
+			// Update
+			$db = Core_Database::__getInstance ();
+			
+			$db->update
+			(
+				'companies',
+				array
+				(
+					'c_name' => Core_Tools::getInput ('_POST', 'company', 'username', $data['c_name']),
+					'c_adres' => Core_Tools::getInput ('_POST', 'adres', 'varchar', $data['c_adres']),
+					'c_postcode' => Core_Tools::getInput ('_POST', 'postcode', 'varchar', $data['c_postcode']),
+					'c_gemeente' => Core_Tools::getInput ('_POST', 'gemeente', 'varchar', $data['c_gemeente']),
+					'c_hour' => intval (Core_Tools::getInput ('_POST', 'reminder', 'int', $data['c_hour']))
+				),
+				"c_id = ".$objCompany->getId ()
+			);
+			
+			$objCompany->reloadData ();
+			$data = $objCompany->getData ();
+		
+			$page = new Core_Template ();
+			
+			$page->set ('company_value', Core_Tools::output_form ($data['c_name']));
+			$page->set ('adres_value', Core_Tools::output_form ($data['c_adres']));
+			$page->set ('postcode_value', Core_Tools::output_form ($data['c_postcode']));
+			$page->set ('gemeente_value', Core_Tools::output_form ($data['c_gemeente']));
+			
+			$page->set ('reminder_value', $objCompany->getReminder ());
+
+			if (isset ($warning))
+			{
+				$page->set ('warning', $warning);
+			}
+
+			$page->set ('title', $text->get ('title'));
+			$page->set ('about', $text->get ('about'));
+			$page->set ('contactDetails', $text->get ('contactDetails'));
+
+			$page->set ('submit', $text->get ('submit'));
+			$page->set ('company', $text->get ('company'));
+			$page->set ('adres', $text->get ('adres'));
+			$page->set ('postcode', $text->get ('postcode'));
+			$page->set ('gemeente', $text->get ('gemeente'));
+			$page->set ('reminder', $text->get ('reminder'));
+			$page->set ('noReminder', $text->get ('noReminder'));
+			
+			$page->set ('formAction', self::getUrl ('page=company&id='.$objCompany->getId ().'&action=edit'));
+			
+			return $page->parse ('company_edit.phpt');
+		}
+		else
+		{
+			return '<p>You are not authorized to visit this section.</p>';
 		}
 	}
 	

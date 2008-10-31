@@ -48,6 +48,11 @@ class Profile_Company
 	{
 		return $this->id;
 	}
+	
+	public function reloadData ()
+	{
+		$this->data = null;
+	}
 
 	public function setData ($data)
 	{
@@ -564,6 +569,23 @@ class Profile_Company
 		}
 		
 		return $out;
+	}
+	
+	public function getReminder ()
+	{
+		$this->loadData ();
+		return $this->data['c_hour'];
+	}
+	
+	public function sendReminders ()
+	{
+		// Fetch all users
+		$users = $this->getUsers ();
+		
+		foreach ($users as $v)
+		{
+			$v->sendReminder ($company);
+		}
 	}
 }
 ?>

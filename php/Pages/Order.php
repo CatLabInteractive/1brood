@@ -607,7 +607,7 @@ class Pages_Order extends Pages_Page
 		
 		$page = new Core_Template ();
 		
-		$page->set ('order', $this->getOrderOverview ($order, true));
+		$page->set ('order', $this->getOrderOverview ($order, false, false, true));
 		$page->set ('footer', $text->get ('printerFooter', 'main', 'main'));
 		
 		return $page->parse ('mailtemplate.tpl');
@@ -675,7 +675,7 @@ class Pages_Order extends Pages_Page
 		return $page->parse ('order_submit.tpl');
 	}
 
-	private function getOrderOverview ($order, $showOnlineVersion = true, $showSended = false)
+	private function getOrderOverview ($order, $showOnlineVersion = true, $showSended = false, $showNames = true)
 	{
 		$db = Core_Database::__getInstance ();
 	
@@ -750,7 +750,7 @@ class Pages_Order extends Pages_Page
 				array
 				(
 					$name,
-					($showOnlineVersion ? Core_Tools::output_varchar ($v['firstname']) : null),
+					($showNames ? Core_Tools::output_varchar ($v['firstname']) : null),
 					Core_Tools::convert_price ($v['op_amount'] * $v['op_price']),
 					$v['op_message'],
 					$catname

@@ -144,9 +144,9 @@ class Pages_API extends Pages_Page
 		
 			echo '<pre>';
 		
-			echo 'It\'s '.$hour.', time for reminders!' . "\n";
+			echo 'It\'s '.$hour.'h, time for reminders!' . "\n";
 		
-			$count ++;
+			$count = 0;
 			foreach ($companies as $v)
 			{
 				$company = Profile_Company::getCompany ($v['c_id']);

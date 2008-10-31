@@ -18,10 +18,10 @@
 		<meta name="author" content="Thijs Van der Schaeghe"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		
-		<link rel="stylesheet" type="text/css" href="css/<?=$template_name?>/layout.css" media="screen"/>
-		<link rel="stylesheet" type="text/css" href="css/default/printer.css" media="print"/>
+		<link rel="stylesheet" type="text/css" href="<?=ABSOLUTE_URL?>css/<?=$template_name?>/layout.css" media="screen"/>
+		<link rel="stylesheet" type="text/css" href="<?=ABSOLUTE_URL?>css/default/printer.css" media="print"/>
 
-		<script src="js/common.js" type="text/javascript"></script>
+		<script src="<?=ABSOLUTE_URL?>js/common.js" type="text/javascript"></script>
 
 	</head>
 	

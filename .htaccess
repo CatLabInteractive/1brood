@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteRule ^([^?]+) index.php?page=$1&%{QUERY_STRING}  [PT]
+
+#AddOutputFilterByType DEFLATE text/html text/plain text/xml 

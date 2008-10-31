@@ -79,7 +79,17 @@ class Pages_Page
 	/* Various */
 	public static function getUrl ($url)
 	{
-		return ABSOLUTE_URL . '?' . $url;
+		$params = explode ('&', $url);
+		if (substr ($params[0], 0, 5) == 'page=')
+		{
+			$action = array_shift ($params);
+			$action = str_replace ('page=', '', $action);
+			return ABSOLUTE_URL . $action . '/?' . implode ('&', $params);
+		}
+		else
+		{
+			return ABSOLUTE_URL . '?' . $url;
+		}
 	}
 
 	/* Page specific functions */

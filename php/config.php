@@ -6,6 +6,8 @@
 
 define ('APP_VERSION', 0.2);
 
+define ('BASE_PATH', dirname (dirname (__FILE__)));
+
 if ($_SERVER['SERVER_NAME'] == 'daedelserv.local' || $_SERVER['SERVER_NAME'] == 'daedeloth.no-ip.org')
 {
 	define ('DB_USERNAME', 'myuser');

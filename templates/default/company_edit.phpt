@@ -44,6 +44,6 @@
 		</select>
 	</label>
 
-	<button><?php echo $submit; ?></button>
+	<button name="submit"><?php echo $submit; ?></button>
 
 </form>

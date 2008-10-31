@@ -158,19 +158,22 @@ class Pages_Company extends Pages_Page
 			// Update
 			$db = Core_Database::__getInstance ();
 			
-			$db->update
-			(
-				'companies',
-				array
+			if (isset ($_POST['submit']))
+			{
+				$db->update
 				(
-					'c_name' => Core_Tools::getInput ('_POST', 'company', 'username', $data['c_name']),
-					'c_adres' => Core_Tools::getInput ('_POST', 'adres', 'varchar', $data['c_adres']),
-					'c_postcode' => Core_Tools::getInput ('_POST', 'postcode', 'varchar', $data['c_postcode']),
-					'c_gemeente' => Core_Tools::getInput ('_POST', 'gemeente', 'varchar', $data['c_gemeente']),
-					'c_hour' => intval (Core_Tools::getInput ('_POST', 'reminder', 'int', $data['c_hour']))
-				),
-				"c_id = ".$objCompany->getId ()
-			);
+					'companies',
+					array
+					(
+						'c_name' => Core_Tools::getInput ('_POST', 'company', 'username', $data['c_name']),
+						'c_adres' => Core_Tools::getInput ('_POST', 'adres', 'varchar', $data['c_adres']),
+						'c_postcode' => Core_Tools::getInput ('_POST', 'postcode', 'varchar', $data['c_postcode']),
+						'c_gemeente' => Core_Tools::getInput ('_POST', 'gemeente', 'varchar', $data['c_gemeente']),
+						'c_hour' => intval (Core_Tools::getInput ('_POST', 'reminder', 'int', $data['c_hour']))
+					),
+					"c_id = ".$objCompany->getId ()
+				);
+			}
 			
 			$objCompany->reloadData ();
 			$data = $objCompany->getData ();

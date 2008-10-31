@@ -35,4 +35,4 @@ toAddCompanie = "om een ander bedrijf toe te voegen."
 poeflog = "Poefboek log"
 
 [reminder]
-
+subject = "Tijd voor 1Brood!"

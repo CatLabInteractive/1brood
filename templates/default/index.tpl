@@ -37,13 +37,15 @@
 					<?php echo $menu; ?>
 				</div>
 
-				<div id="basket" class="noPrint">
+				<div id="basket" class="noPrint" style="clear: left;">
 					<?php echo $basket; ?>
 				</div>
 
-				<div id="login" style="padding-bottom: 60px;">
+				<div id="login">
 					<?php echo $login; ?>
 				</div>
+				
+				<div style="padding-bottom: 60px;">&nbsp;</div>
 				
 				<div id="sponsor">
 					<!-- Sponsor! -->

@@ -41,6 +41,7 @@ waxiaans = "Waxiaans"
 [layouts]
 default = "Standaard"
 matrix = "The Matrix"
+buttons = "Buttons"
 
 [lostpass]
 lostpass = "Paswoord vergeten?"

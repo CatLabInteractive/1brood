@@ -63,6 +63,7 @@ if (isset ($_GET['language']))
 		&& is_dir (LANGUAGE_DIR . $_GET['language'])
 	)
 	{
+		setCookie ('language', $_GET['language'], time () + 60*60*24*365);
 		setCookie ('language', $_GET['language'], time () + 60*60*24*365, '/');
 		$_COOKIE['language'] = $_GET['language'];
 	}
@@ -76,6 +77,7 @@ if (isset ($_GET['layout']))
 		&& is_dir (TEMPLATES_DIR . $_GET['layout'])
 	)
 	{
+		setCookie ('layout', $_GET['layout'], time () + 60*60*24*365);
 		setCookie ('layout', $_GET['layout'], time () + 60*60*24*365, '/');
 		$_COOKIE['layout'] = $_GET['layout'];
 	}

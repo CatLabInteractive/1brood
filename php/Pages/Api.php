@@ -130,7 +130,7 @@ class Pages_API extends Pages_Page
 					}
 					else
 					{					
-						echo 'This user ('.$username.') is not found. Please try again.';						
+						echo 'This user ('.$username.') is not found. Please try again, or register at http://www.1brood.be/';						
 					}
 				}
 				else

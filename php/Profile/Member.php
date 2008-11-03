@@ -257,7 +257,7 @@ class Profile_Member
 		(
 			'im_users',
 			array ('im_user'),
-			"im_player = ".$this->getId ()
+			"im_player = ".$this->getId ()." AND im_activated = 1"
 		);
 		
 		$url = 'https://www.imified.com/api/bot/';

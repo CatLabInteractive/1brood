@@ -288,7 +288,9 @@ class Profile_Member
 			}
 			else
 			{
+				echo '<pre>';
 				var_dump ($xml);
+				echo '</pre>';
 			}
 			
 			curl_close($ch);

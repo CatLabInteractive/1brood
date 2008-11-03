@@ -269,7 +269,7 @@ class Profile_Member
 			    'botkey' => '53881418-A97D-9713-415C46EA2843C806',
 			    'apimethod' => 'send',
 			    'userkey' => $v['im_user'],     // char
-			    'msg' => 'Tijd voor broodjes! Ga snel naar http://www.1brood.be/!',
+			    'msg' => 'Tijd voor broodjes! Ga snel naar http://www.1brood.be/ !',
 			);
 
 			$ch = curl_init();
@@ -285,12 +285,6 @@ class Profile_Member
 			if (!$xml)
 			{
 				echo curl_error ($ch);
-			}
-			else
-			{
-				echo '<pre>';
-				print_r ($xml);
-				echo '</pre>';
 			}
 			
 			curl_close($ch);

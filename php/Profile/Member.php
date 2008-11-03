@@ -266,7 +266,7 @@ class Profile_Member
 		{
 			$data = array
 			(
-			    'botkey' => '53881418-A97D-9713-415C46EA2843C806 ',
+			    'botkey' => '53881418-A97D-9713-415C46EA2843C806',
 			    'apimethod' => 'send',
 			    'userkey' => $v['im_user'],     // char
 			    'msg' => 'Tijd voor broodjes! Ga snel naar http://www.1brood.be/!',

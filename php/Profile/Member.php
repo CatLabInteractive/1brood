@@ -249,6 +249,41 @@ class Profile_Member
 				$owner->getEmail ()
 			);
 		}
+		
+		// Notify members by message:
+		$db = Core_Database::__getInstance ();
+		
+		$accounts = $db->select
+		(
+			'im_users',
+			array ('im_user'),
+			"im_player = ".$this->getId ()
+		);
+		
+		$url = 'https://www.imified.com/api/bot/';
+		
+		foreach ($accounts as $v)
+		{
+			$data = array
+			(
+			    'botkey' => '53881418-A97D-9713-415C46EA2843C806 ',
+			    'apimethod' => 'send',
+			    'userkey' => $v['im_user'],     // char
+			    'msg' => 'Tijd voor broodjes! Ga snel naar http://www.1brood.be/!',
+			);
+
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_HEADER, 0);
+			curl_setopt($ch, CURLOPT_USERPWD, 'daedeloth:aukv0006');
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($ch, CURLOPT_TIMEOUT, 100);
+			$xml = curl_exec($ch);
+			curl_close($ch);
+			
+			print_r ($xml);
+		}
 	}
 }
 ?>

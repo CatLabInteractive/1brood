@@ -287,7 +287,7 @@ class Profile_Member
 			}
 			else
 			{
-				print_r ($xml);
+				var_dump ($xml);
 			}
 			
 			curl_close($ch);

@@ -79,7 +79,7 @@ class Pages_API extends Pages_Page
 		{
 			case 'login':
 
-				if (count ($commands) > 1)
+				if (count ($commands) == 1)
 				{
 					$email = array_shift ($commands);
 					

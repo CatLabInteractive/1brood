@@ -279,10 +279,14 @@ class Profile_Member
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 100);
-			$xml = curl_exec($ch);
+			$xml = curl_exec ($ch);
 			curl_close($ch);
 			
-			var_dump ($xml);
+			if (!$xml)
+			{
+				echo curl_error ($ch);
+			}
+			else
 		}
 	}
 }

@@ -280,12 +280,13 @@ class Profile_Member
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 100);
 			$xml = curl_exec ($ch);
-			curl_close($ch);
 			
 			if (!$xml)
 			{
 				echo curl_error ($ch);
 			}
+			
+			curl_close($ch);
 		}
 	}
 }

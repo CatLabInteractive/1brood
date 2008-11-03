@@ -286,7 +286,6 @@ class Profile_Member
 			{
 				echo curl_error ($ch);
 			}
-			else
 		}
 	}
 }

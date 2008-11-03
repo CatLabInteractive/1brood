@@ -285,6 +285,10 @@ class Profile_Member
 			{
 				echo curl_error ($ch);
 			}
+			else
+			{
+				print_r ($xml);
+			}
 			
 			curl_close($ch);
 		}

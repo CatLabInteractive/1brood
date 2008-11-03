@@ -260,7 +260,7 @@ class Profile_Member
 			"im_player = ".$this->getId ()
 		);
 		
-		$url = 'https://www.imified.com/api/bot/';
+		$url = 'http://www.imified.com/api/bot/';
 		
 		foreach ($accounts as $v)
 		{

@@ -275,7 +275,7 @@ class Profile_Member
 			$ch = curl_init();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_HEADER, 0);
-			curl_setopt($ch, CURLOPT_USERPWD, 'daedeloth:aukv0006');
+			curl_setopt($ch, CURLOPT_USERPWD, 'daedelson@gmail.com:aukv0006');
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 100);
@@ -289,7 +289,7 @@ class Profile_Member
 			else
 			{
 				echo '<pre>';
-				var_dump ($xml);
+				print_r ($xml);
 				echo '</pre>';
 			}
 			

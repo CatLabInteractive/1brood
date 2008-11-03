@@ -38,7 +38,7 @@ class Pages_API extends Pages_Page
 			$user = $db->select
 			(
 				'im_users',
-				array ('im_player'),
+				array ('im_player', 'im_activated'),
 				"im_user = '".$db->escape ($key)."'"
 			);
 		
@@ -47,6 +47,13 @@ class Pages_API extends Pages_Page
 				// Request to login
 				$this->processIMLogin ($key, Core_Tools::getInput ('_POST', 'msg', 'varchar'));
 			}
+			
+			// Check for not activated
+			if ($user[0]['im_activated'] == 0)
+			{
+				$this->processIMActivate ($key, Core_Tools::getInput ('_POST', 'msg', 'varchar'));
+			}
+			
 			else
 			{
 				// User is authenticated
@@ -61,6 +68,8 @@ class Pages_API extends Pages_Page
 	
 	private function processIMLogin ($key, $msg)
 	{
+		$text = Core_Text::__getInstance ();
+	
 		$db = Core_Database::__getInstance ();
 		
 		$commands = explode (' ', $msg);
@@ -72,23 +81,52 @@ class Pages_API extends Pages_Page
 
 				if (count ($commands) > 1)
 				{
-					$username = array_shift ($commands);
-					$password = array_shift ($commands);
+					$email = array_shift ($commands);
 					
-					$login = Core_Login::__getInstance ();
-					if ($login->login ($username, $password))
+					// Search in the database for this user
+					$user = $db->select
+					(
+						'players',
+						array ('plid', 'realname', 'email'),
+						"email = '".$db->escape ($email)."'"
+					);
+					
+					if (count ($user) == 1)
 					{
+						// Invent a new key
+						$passkey = substr (md5 (rand (0, 100000)), 0, 6);
+					
 						$db->insert
 						(
 							'im_users',
 							array
 							(
 								'im_user' => $key,
-								'im_player' => $login->getUserId ()
+								'im_player' => $user[0]['plid'],
+								'im_key' => $passkey
 							)
 						);
+						
+						// Send the secret key to this user
+						Core_Tools::sendMail 
+						(
+							$text->get ('subject', 'bot', 'main'), 
+							Core_Tools::output_text 
+							(
+								Core_Tools::putIntoText
+								(
+									$text->getFile ('mails/bot'),
+									array
+									(
+										'name' => $user[0]['realname'],
+										'key' => $passkey
+									)
+								)
+							),
+							$user[0]['email']
+						);
 
-						echo 'Your account is now linked to your IM account.';
+						echo 'We have found your account. We have sent an email containing a secret key.<br />Please show me the key here.';
 					}
 					else
 					{					
@@ -103,9 +141,32 @@ class Pages_API extends Pages_Page
 			break;
 			
 			default:
-				echo 'Please login in 1Brood by typing "Login email password".<br />';
+				echo 'Please login in 1Brood by typing "Login <your email>".<br />';
 				echo 'We will start sending out reminders as soon as you are logged in.';
 			break;
+		}
+	}
+	
+	private function processIMActivate ($key, $msg)
+	{
+		// Check if message is right
+		$chk = $db->update
+		(
+			'im_users',
+			array
+			(
+				'im_activated' => 1
+			),
+			"im_user = '".$db->escape ($key)."' AND im_key = '".$db->escape ($msg)."'"
+		);
+		
+		if ($chk == 1)
+		{
+			echo 'Your 1Brood account is now linked to this IM account.';
+		}
+		else
+		{
+			echo 'This is the wrong key! Come back when you find the right one.';
 		}
 	}
 	

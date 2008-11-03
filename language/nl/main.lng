@@ -62,3 +62,6 @@ pass2 = "Herhaal paswoord"
 submitchange = "Paswoord aanpassen"
 passmismatch = "Uw paswoorden komen niet overeen."
 passchanged = "Uw paswoord is aangepast. Eet smakelijk!"
+
+[bot]
+subject = "1Brood Bot Activatie"

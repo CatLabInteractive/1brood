@@ -282,7 +282,7 @@ class Profile_Member
 			$xml = curl_exec($ch);
 			curl_close($ch);
 			
-			print_r ($xml);
+			var_dump ($xml);
 		}
 	}
 }

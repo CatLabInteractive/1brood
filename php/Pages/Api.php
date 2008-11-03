@@ -141,7 +141,7 @@ class Pages_API extends Pages_Page
 			break;
 			
 			default:
-				echo 'Please login in 1Brood by typing "Login <your email>".<br />';
+				echo 'Please login in 1Brood by typing "Login your_email".<br />';
 				echo 'We will start sending out reminders as soon as you are logged in.';
 			break;
 		}

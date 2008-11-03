@@ -49,7 +49,7 @@ class Pages_API extends Pages_Page
 			}
 			
 			// Check for not activated
-			if ($user[0]['im_activated'] == 0)
+			elseif ($user[0]['im_activated'] == 0)
 			{
 				$this->processIMActivate ($key, Core_Tools::getInput ('_POST', 'msg', 'varchar'));
 			}
@@ -149,6 +149,8 @@ class Pages_API extends Pages_Page
 	
 	private function processIMActivate ($key, $msg)
 	{
+		$db = Core_Database::__getInstance ();
+	
 		// Check if message is right
 		$chk = $db->update
 		(

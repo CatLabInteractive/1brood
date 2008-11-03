@@ -260,7 +260,7 @@ class Profile_Member
 			"im_player = ".$this->getId ()
 		);
 		
-		$url = 'http://www.imified.com/api/bot/';
+		$url = 'https://www.imified.com/api/bot/';
 		
 		foreach ($accounts as $v)
 		{
@@ -279,6 +279,7 @@ class Profile_Member
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_TIMEOUT, 100);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
 			$xml = curl_exec ($ch);
 			
 			if (!$xml)

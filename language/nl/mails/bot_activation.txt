@@ -1,0 +1,9 @@
+Hallo @@name,
+
+Je hebt je aangemeld voor de IM dienst van 1Brood.
+
+Geef deze code aan de bot, hij weet wat ermee te doen:
+@@key
+
+Groeten!
+1Brood.

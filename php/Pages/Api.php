@@ -115,7 +115,7 @@ class Pages_API extends Pages_Page
 							(
 								Core_Tools::putIntoText
 								(
-									$text->getFile ('mails/bot'),
+									$text->getFile ('mails/bot_activation'),
 									array
 									(
 										'name' => $user[0]['realname'],

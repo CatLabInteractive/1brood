@@ -246,7 +246,8 @@ class Profile_Member
 				$email, 
 				$this->getFullname (), 
 				$owner->getFullname (), 
-				$owner->getEmail ()
+				$owner->getEmail (),
+				false
 			);
 		}
 		

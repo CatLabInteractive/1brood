@@ -670,7 +670,7 @@ class Core_Tools
 		return $dur;
 	}
 	
-	public static function sendMail ($subject, $html, $email, $toName = "", $fromName = null, $fromEmail = null)
+	public static function sendMail ($subject, $html, $email, $toName = "", $fromName = null, $fromEmail = null, $ccMyself = true)
 	{
 		$mail = new Mailer_PHPMailer ();
 
@@ -712,7 +712,7 @@ class Core_Tools
 
 		$mail->addAddress ($email, $toName);
 		
-		if (isset ($fromName) && isset ($fromEmail))
+		if (isset ($fromName) && isset ($fromEmail) && $ccMyself)
 		{
 			$mail->addCC ($fromEmail, $fromName);
 		}

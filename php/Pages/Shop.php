@@ -206,8 +206,6 @@ class Pages_Shop extends Pages_Page
 		$text->setSection ('products');
 
 		$page = new Core_Template ();
-		
-		$page->set ('message', Core_Tools::output_text ($shop->getMessage ()));
 
 		$page->set
 		(

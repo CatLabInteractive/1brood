@@ -12,6 +12,7 @@ complete = "Vul alsjeblieft alle velden in."
 emailFound = "Er is al een account met dat e-mail adres."
 passFault = "Je paswoorden zijn niet gelijk."
 done = "Je account is aangemaakt!"
+nickname = "Nickname (zichtbaar op bestellingen)"
 
 [company]
 title = "Selecteer je bedrijf"
@@ -33,6 +34,15 @@ pending = "Bedrijven in de wachtrij"
 aboutPending = "Zodra je aanvraag voor een bedrijf verstuurd is, zal de moderator van dat bedrijf jouw aanvraag beoordelen. Contacteer je moderator om dit proces te versnellen."
 toAddCompanie = "om een ander bedrijf toe te voegen."
 poeflog = "Poefboek log"
+edit = "Gegevens aanpassen"
+email = "E-mail"
+name = "Name"
 
 [reminder]
 subject = "Tijd voor 1Brood!"
+
+[edit]
+title = "Gegevens aanpassen"
+submit = "Verzenden"
+done = "Uw gegevens zijn aangepast."
+error = "Uw gegevens zijn niet aangepast omdat minstens een van de velden niet aan de voorwaarden voldoet."

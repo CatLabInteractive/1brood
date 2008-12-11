@@ -586,9 +586,10 @@ class Pages_Company extends Pages_Page
 				'users',
 				array
 				(
-					Core_Tools::output_varchar ($v[0]->getFullName ()),
+					Core_Tools::output_varchar ($v[0]->getUsername ()),
 					Core_Tools::convert_price ($v[2]),
-					'user'.$v[0]->getId ()
+					'user'.$v[0]->getId (),
+					Core_Tools::output_varchar ($v[0]->getFullname ())
 				)
 			);
 		}

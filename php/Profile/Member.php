@@ -68,17 +68,36 @@ class Profile_Member
 			}
 		}
 	}
+	
+	/*
+		Reset the local cache & reload the data (if needed)
+	*/
+	public function reloadData ()
+	{
+		$this->data = null;
+	}
 
 	public function getUsername ()
 	{
 		$this->loadData ();
-		return $this->data['firstname'];
+		return $this->data['realname'];
 	}
 	
 	public function getFullname ()
 	{
+		return $this->getFirstName () . ' ' . $this->getName ();
+	}
+	
+	public function getFirstName ()
+	{
 		$this->loadData ();
-		return $this->data['realname'];
+		return $this->data['firstname'];	
+	}
+	
+	public function getName ()
+	{
+		$this->loadData ();
+		return $this->data['lastname'];	
 	}
 
 	public function getEmail ()

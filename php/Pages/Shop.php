@@ -150,8 +150,9 @@ class Pages_Shop extends Pages_Page
 		}
 	}
 
-	public function getOverview ($objShop)
+	public function getOverview ($shop)
 	{
+		/*
 		$login = Core_Login::__getInstance ();
 		$db = Core_Database::__getInstance ();
 		
@@ -175,7 +176,6 @@ class Pages_Shop extends Pages_Page
 			)
 		);
 
-		$page->set ('message', Core_Tools::output_text ($objShop->getMessage ()));
 		$page->set ('products', $text->get ('products'));
 		$page->set ('noProducts', $text->get ('noProducts'));
 
@@ -199,6 +199,103 @@ class Pages_Shop extends Pages_Page
 		$page->set ('currency', Core_Tools::output_varchar ($objShop->getCurrency ()));
 
 		return $page->parse ('shop_overview.tpl');
+		*/
+		
+		$text = Core_Text::__getInstance ();
+		$text->setFile ('order');
+		$text->setSection ('products');
+
+		$page = new Core_Template ();
+		
+		$page->set ('message', Core_Tools::output_text ($shop->getMessage ()));
+
+		$page->set
+		(
+			'title',
+			Core_Tools::putIntoText
+			(
+				$text->get ('title', 'overview', 'shop'),
+				array
+				(
+					Core_Tools::output_varchar ($shop->getName ())
+				)
+			)
+		);
+			
+		$page->set (
+			'poefboek',
+			Core_Tools::putIntoText
+			(
+				$text->get ('poefboek'),
+				array
+				(
+					$poefboek,
+					$shop->getCurrency ()
+				)
+			)
+		);
+		
+		$categories = $shop->getCategories (true);
+		
+		$page->set ('poefboek_value', $poefboek);
+
+		$page->set ('order', $text->get ('order', 'products', 'order'));
+		$page->set ('currency', $shop->getCurrency ());
+		$page->set ('noProducts', $text->get ('noProducts'));
+		$page->set ('products', $text->get ('products'));
+
+		$page->set ('message', Core_Tools::output_text ($shop->getMessage ()));
+		
+		$products = $shop->getProducts ();
+		foreach ($products as $v)
+		{
+			if (!isset ($catProducts[$v['c_id']]))
+			{
+				$catProducts[$v['c_id']] = array ();
+			}
+			
+			$catProducts[$v['c_id']][] = $v;
+		}
+		
+		foreach ($categories as $category)
+		{
+
+			$orderUrl = array ();
+			
+			$newProducts = array ();
+			if (isset ($catProducts[$category['c_id']])) 
+			{
+				foreach ($catProducts[$category['c_id']] as $v)
+				{
+					$oUrls = array ();
+					foreach ($orderUrl as $key => $url)
+					{
+						$oUrls[$key] = self::getUrl ($url . '&pid='.$v['p_id']);
+					}
+				
+					$newProducts[] = array
+					(
+						Core_Tools::output_varchar ($v['p_name']),
+						Core_Tools::output_varchar ($v['p_info']),
+						$v['prices'],
+						$oUrls
+					);
+				}
+			}
+			
+			$page->addListValue
+			(
+				'categories',
+				array
+				(
+					'name' => $category['c_name'],
+					'products' => $newProducts,
+					'prices' => $category['prices']
+				)
+			);
+		}
+	
+		return $page->parse ('shop_products.tpl');
 	}
 	
 	public function getManageCategories ($objShop)

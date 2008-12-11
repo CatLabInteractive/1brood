@@ -37,9 +37,11 @@
 					<?php echo $menu; ?>
 				</div>
 
-				<div id="basket" class="noPrint" style="clear: left;">
-					<?php echo $basket; ?>
-				</div>
+				<?php if (!empty ($basket)) { ?>
+					<div id="basket" class="noPrint" style="clear: left;">
+						<?php echo $basket; ?>
+					</div>
+				<?php } ?>
 
 				<div id="login">
 					<?php echo $login; ?>
@@ -66,10 +68,7 @@
 			
 			<div id="footer">
 				<p style="text-align: center;">
-
-					<?php echo $footerSpoof; ?> <br />
 					<?php echo $footer; ?>
-					
 				</p>
 				
 				<p style="float: right; margin: 0px; line-height: 1.4; margin-top: 12px;">

@@ -719,7 +719,7 @@ class Pages_Order extends Pages_Page
 				array
 				(
 					$name,
-					($showNames ? Core_Tools::output_varchar ($v['firstname']) : null),
+					($showNames ? Core_Tools::output_varchar ($v['realname']) : null),
 					Core_Tools::convert_price ($v['op_amount'] * $v['op_price']),
 					$v['op_message'],
 					$catname

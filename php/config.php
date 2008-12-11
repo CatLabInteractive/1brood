@@ -8,7 +8,11 @@ define ('APP_VERSION', 0.2);
 
 define ('BASE_PATH', dirname (dirname (__FILE__)));
 
-if ($_SERVER['SERVER_NAME'] == 'daedelserv.local' || $_SERVER['SERVER_NAME'] == 'daedeloth.no-ip.org')
+if (
+	$_SERVER['SERVER_NAME'] == 'daedelserv.local' || 
+	$_SERVER['SERVER_NAME'] == 'daedeloth.no-ip.org' ||
+	$_SERVER['SERVER_NAME'] == '192.168.0.100'
+)
 {
 	define ('DB_USERNAME', 'myuser');
 	define ('DB_PASSWORD', 'myuser');
@@ -99,7 +103,7 @@ if (isset ($_COOKIE['layout']))
 }
 else
 {
-	define ('TEMPLATE_DIR', TEMPLATES_DIR . 'default');
+	define ('TEMPLATE_DIR', TEMPLATES_DIR . 'buttons');
 }
 
 function getLanguages ()

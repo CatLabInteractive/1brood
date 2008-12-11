@@ -23,6 +23,10 @@ class Pages_Register extends Pages_Page
 		{
 			return $this->getChooseCompany ();
 		}
+		elseif ($action == 'edit')
+		{
+			return $this->getEditProfile ();
+		}
 		else
 		{
 			return $this->getOverview ();
@@ -210,6 +214,11 @@ class Pages_Register extends Pages_Page
 		$page->set ('addCompanyUrl', self::getUrl ('page=register&action=companies'));
 
 		$myself = Profile_Member::getMyself ();
+		
+		$page->set ('name_value', Core_Tools::output_varchar ($myself->getFullName ()));
+		$page->set ('email_value', Core_Tools::output_varchar ($myself->getEmail ()));
+		
+		$page->set ('edit_link', self::getUrl ('page=register&action=edit'));
 
 		$companies = $myself->getMyCompanies ();
 		foreach ($companies as $v)
@@ -241,6 +250,60 @@ class Pages_Register extends Pages_Page
 		}
 
 		return $page->parse ('account_overview.tpl');
+	}
+	
+	/*
+		Return the HTML to edit your profile
+	*/
+	private function getEditProfile ()
+	{
+		$myself = Profile_Member::getMyself ();
+		if (!$myself)
+		{
+			return $this->getRegistrationForm ();
+		}
+		
+		// Process incoming data
+		$firstname = Core_Tools::getInput ('_POST', 'firstname', 'varchar');
+		$name = Core_Tools::getInput ('_POST', 'name', 'varchar');
+		$nickname = Core_Tools::getInput ('_POST', 'nickname', 'username');
+		$email = Core_Tools::getInput ('_POST', 'email', 'email');
+		
+		$page = new Core_Template ();
+		
+		if ($firstname && $name && $nickname && $email)
+		{
+			// Update the database
+			$db = Core_Database::__getInstance ();
+			
+			$db->update
+			(
+				'players',
+				array
+				(
+					'firstname' => $firstname,
+					'lastname' => $name,
+					'realname' => $nickname,
+					'email' => $email
+				),
+				"plid = {$myself->getId()}"
+			);
+			
+			$myself->reloadData ();
+			
+			$page->set ('done', true);
+		}
+		elseif ($firstname || $name || $nickname || $email)
+		{
+			$page->set ('done', false);
+		}
+		
+		$page->set ('nickname', Core_Tools::output_form ($myself->getUsername ()));
+		$page->set ('firstname', Core_Tools::output_form ($myself->getFirstname ()));
+		$page->set ('name', Core_Tools::output_form ($myself->getName ()));
+		$page->set ('email', Core_Tools::output_form ($myself->getEmail ()));
+		
+		return $page->parse ('account_edit.tpl');
 	}
 }
 ?>

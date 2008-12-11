@@ -1,5 +1,20 @@
+<?php $this->setTextSection ('overview', 'account'); ?>
+
+<p class="rightLink">
+	<a href="<?=$edit_link?>"><?=$this->getText ('edit')?></a>
+</p>
 <h2><?php echo $title; ?></h2>
-<p><?php echo $about; ?>
+
+<table class="data">
+	<tr>
+		<td class="links"><?=$this->getText ('name')?>:</td>
+		<td class="rechts"><?=$name_value?></td>
+	</tr>
+	<tr>
+		<td class="links"><?=$this->getText ('email')?>:</td>
+		<td class="rechts"><?=$email_value?></td>
+	</tr>
+</table>
 
 <h2><?php echo $companies; ?></h2>
 

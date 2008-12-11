@@ -25,7 +25,7 @@
 		<?php $i ++; ?>
 		<tr class="<?=$i % 2 ? 'row1' : 'row2'?>">
 		
-			<td><?php echo $v[0]; ?></td>
+			<td><span title="<?php echo $v[3]; ?>"><?php echo $v[0]; ?></span></td>
 			<td style="text-align: center;">&euro;  <?php echo $v[1]; ?></td>
 			
 			<td style="text-align: center;">

@@ -106,8 +106,8 @@ class Pages_Page
 	
 	protected function getFooter ()
 	{
-		return '&copy; <a href="http://www.daedeloth.be/">Thijs Van der Schaeghe</a>'.
-			', <a href="http://www.neuroninteractive.eu/">Neuron Interactive</a> '
+		return '&copy;'.
+			' <a href="http://www.neuroninteractive.eu/">Neuron Interactive</a> '
 			. (date ('Y') == 2007 ? '2007' : '2007 - '.date ('Y'));
 	}
 	

@@ -256,12 +256,35 @@ class Profile_Member
 		// Get company owner
 		$owner = $company->getOwner ();
 		
+		// Check for negative poefboek
+		$poefboek = $company->getMemberPoefboek ($this);
+		
+		if ($poefboek > 0)
+		{
+			$txt = Core_Tools::output_text ($text->getFile ('mails/reminder'));
+		}
+		else
+		{
+			$txt = Core_Tools::output_text 
+			(
+				Core_Tools::putIntoText
+				(
+					$text->getFile ('mails/angry_reminder'),
+					array 
+					(
+						'poefboek' => $poefboek,
+						'admin' => Core_Tools::output_varchar ($owner->getFullname ())
+					)
+				)	
+			);
+		}
+		
 		if ($owner)
 		{
 			Core_Tools::sendMail 
 			(
 				$text->get ('subject'), 
-				Core_Tools::output_text ($text->getFile ('mails/reminder')),
+				$txt,
 				$email, 
 				$this->getFullname (), 
 				$owner->getFullname (), 

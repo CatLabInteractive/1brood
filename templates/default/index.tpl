@@ -82,6 +82,8 @@
 			
 			<div id="footer">
 				<p style="text-align: center;">
+					<a href="http://forum.neuroninteractive.eu/" target="_BLANK"><?=$this->getText ('forum', 'menu', 'main')?></a>,
+					<a href="<?php Pages_Page::getUrl ('page=donation')?>"><?=$this->getText ('donations', 'menu', 'main')?></a>, 
 					<?php echo $footer; ?>
 				</p>
 				

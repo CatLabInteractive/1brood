@@ -28,7 +28,7 @@ else
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', 'b6557bro_brood');
 	
-	define ('ABSOLUTE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/order/');
+	define ('ABSOLUTE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
 }
 
 define ('TIME_ZONE', 'Europe/Brussels');

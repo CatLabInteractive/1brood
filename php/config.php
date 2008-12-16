@@ -111,7 +111,7 @@ function getLanguages ()
 	$o = array ();
 
 	$o[] = array ('nederlands', 'nl');
-	$o[] = array ('waxiaans', 'nl-wax');
+	//$o[] = array ('waxiaans', 'nl-wax');
 	//$o[] = array ('west-vlaams', 'nl-wv');
 
 	return $o;
@@ -121,9 +121,9 @@ function getLayouts ()
 {
 	$o = array ();
 
-	$o[] = array ('default', 'default');
 	$o[] = array ('buttons', 'buttons');
-	$o[] = array ('matrix', 'matrix');
+	//$o[] = array ('default', 'default');
+	//$o[] = array ('matrix', 'matrix');
 
 	return $o;
 }

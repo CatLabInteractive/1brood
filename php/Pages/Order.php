@@ -78,9 +78,12 @@ class Pages_Order extends Pages_Page
 			// Show pending orders
  			$page->set ('pendingOrders', $this->getPendingOrders ($myself));
 		}
+		
+		// Especially for google, we're going to show a list of shops here)
 		else
 		{
-			$page->set ('notLoggedIn', $text->get ('notLoggedIn'));
+			//$page->set ('notLoggedIn', $text->get ('notLoggedIn'));
+			return $this->getGoogleContent ();
 		}
 		
 		return $page->parse ('order_choose.tpl');
@@ -749,6 +752,56 @@ class Pages_Order extends Pages_Page
 			ORDER BY
 				order_prods.plid
 		"));
+	}
+	
+	/*
+		This is what google sees when someone orders something
+		(= when you follow the "order" when you're not logged in)
+	*/
+	public function getGoogleContent ()
+	{
+		$db = Core_Database::__getInstance ();
+	
+		$shop = Core_Tools::getInput ('_GET', 'sid', 'int', false);
+		
+		if ($shop > 0)
+		{
+			// Show all products of this shop
+			$shop = Profile_Shop::getShop ($shop);
+			
+			if ($shop)
+			{
+				$shop_page = new Pages_Shop ();
+				return $shop_page->getOverview ($shop);
+			}
+		}
+
+		// Show a list of all shops.
+		$page = new Core_Template ();
+		
+		$data = $db->select
+		(
+			'shops',
+			array ('*'),
+			null,
+			's_name ASC'
+		);
+		
+		foreach ($data as $v)
+		{
+			$page->addListValue
+			(
+				'shops',
+				array
+				(
+					'name' => Core_Tools::output_varchar ($v['s_name']),
+					'url' => self::getUrl ('page=order&sid='.$v['s_id']),
+					'location' => Core_Tools::output_varchar ($v['s_gemeente'])
+				)
+			);
+		}
+		
+		return $page->parse ('google_shops.phpt');
 	}
 }
 ?>

@@ -29,7 +29,7 @@
 	
 		<div id="container">
 		
-			<h1><?php echo $title; ?></h1>
+			<h1><a href="<?=ABSOLUTE_URL?>"><?php echo $title; ?></a></h1>
 
 			<div id="left">
 		
@@ -47,7 +47,21 @@
 					<?php echo $login; ?>
 				</div>
 				
-				<div style="padding-bottom: 60px;">&nbsp;</div>
+				<div id="banner">
+					<script type="text/javascript"><!--
+					google_ad_client = "pub-3929914410415663";
+					/* 180x150, gemaakt 16-12-08 */
+					google_ad_slot = "0285478173";
+					google_ad_width = 180;
+					google_ad_height = 150;
+					//-->
+					</script>
+					<script type="text/javascript"
+					src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+					</script>
+				</div>
+				
+				<div style="padding-bottom: 30px;">&nbsp;</div>
 				
 				<div id="sponsor">
 					<!-- Sponsor! -->

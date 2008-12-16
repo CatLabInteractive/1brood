@@ -32,6 +32,12 @@ h1
 	background-image:url('../../images/header.png');
 }
 
+h1 a
+{
+	color: black;
+	text-decoration: none;
+}
+
 h2
 {
 	font-family: Georgia;
@@ -78,7 +84,7 @@ a:hover
 #left
 {
 	float: left;
-	width: 170px;
+	width: 180px;
 	padding: 15px;
 }
 
@@ -156,7 +162,7 @@ a:hover
 	display: block;
 	line-height: 14px;
 	padding: 5px 0 5px 18px;
-	width: 135px;
+	width: 145px;
 } 
 
 #menu ul li a:active 
@@ -175,7 +181,7 @@ a:hover
 #basket
 {
 	padding: 2px 10px;
-	border: 1px solid #ddd;
+	border: 1px solid #ccc;
 	margin-bottom: 5px;
 	clear: left;
 }
@@ -201,7 +207,7 @@ a:hover
 #login
 {
 	padding: 2px 10px;
-	border: 1px solid #ddd;
+	border: 1px solid #ccc;
 	margin-bottom: 5px;
 	clear: left;
 }

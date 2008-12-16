@@ -1,6 +1,10 @@
 [main]
 title = "Bestellen: @@0 - @@1"
 
+[shops]
+title = "Kies een winkel"
+about = "Dit zijn de winkels die momenteel in 1Brood zijn opgenomen. Elk bedrijf voegt zelf de winkels toe waar hij wenst te bestellen. De prijslijsten worden ofwel door de winkel beheert, ofwel door het bedrijf die de winkel toevoegde."
+
 [products]
 order = "bestel"
 noProducts = "Er zijn nog geen producten toegevoegd."

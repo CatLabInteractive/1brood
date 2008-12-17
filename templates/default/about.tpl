@@ -1,4 +1,5 @@
 <h2><?php echo $title; ?></h2>
+
 <p><?php echo $about1; ?></p>
 <p><?php echo $about2; ?></p>
 

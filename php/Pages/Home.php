@@ -19,6 +19,8 @@ class Pages_Home extends Pages_Page
 		$page->set ('title', $text->get ('title'));
 
 		$page->set ('manual', $text->get ('manual'));
+		
+		$page->set ('companies', $text->get ('companies'));
 
 		$page->set ('login', $text->get ('login'));
 		$page->set ('choose', $text->get ('choose'));

@@ -17,6 +17,7 @@ class Pages_About extends Pages_Page
 		$text->setSection ('about');
 		
 		$page->set ('title', $text->get ('title'));
+		
 		$page->set ('about1', $text->get ('about1'));
 		$page->set ('about2', $text->get ('about2'));
 

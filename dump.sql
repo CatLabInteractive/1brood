@@ -1,16 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 2.11.8.1deb1
+-- version 2.11.6
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generatie Tijd: 31 Oct 2008 om 17:56
--- Server versie: 5.0.51
--- PHP Versie: 5.2.6-3
+-- Generatie Tijd: 16 Dec 2008 om 23:39
+-- Server versie: 5.0.67
+-- PHP Versie: 5.2.6
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
--- Database: `1brood`
+-- Database: `b6557bro_brood`
 --
 
 -- --------------------------------------------------------
@@ -77,6 +77,8 @@ CREATE TABLE IF NOT EXISTS `companies_shop` (
 CREATE TABLE IF NOT EXISTS `im_users` (
   `im_user` varchar(50) NOT NULL,
   `im_player` int(11) NOT NULL,
+  `im_key` varchar(6) NOT NULL,
+  `im_activated` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`im_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -105,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `order_prods` (
   `op_id` int(11) NOT NULL auto_increment,
   `o_id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL,
-  `p_pid` tinyint(4) NOT NULL default '0',
+  `p_pid` int(11) NOT NULL default '0',
   `plid` int(11) NOT NULL,
   `op_message` varchar(255) character set utf8 collate utf8_unicode_ci NOT NULL,
   `op_amount` int(11) NOT NULL,
@@ -190,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `products` (
   `c_id` int(11) NOT NULL default '0',
   `p_name` varchar(100) NOT NULL,
   `p_info` varchar(250) NOT NULL,
-  `p_price` varchar(255) NOT NULL,
+  `p_price` varchar(55) NOT NULL,
   PRIMARY KEY  (`p_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 

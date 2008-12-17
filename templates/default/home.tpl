@@ -8,6 +8,8 @@
 	<li><?php echo $eat; ?></li>
 </ol>
 
-<p class="home" style="padding-bottom: 120px; margin-top: 15px;">
+<p style="margin-top: 25px; margin-bottom: 1px;"><?php echo $companies; ?></p>
+
+<p class="home" style="padding-bottom: 120px;">
 	<?php echo $toMoreInfo[0]; ?><a href="<?php echo $moreInfoLink; ?>"><?php echo $toMoreInfo[1]; ?></a><?php echo $toMoreInfo[2]; ?>
 </p>

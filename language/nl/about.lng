@@ -12,7 +12,8 @@ examp2 = "Tot [l]Trikke[/l] 1Brood ontdekt! Nu legt elke werknemer elke week een
 examp3 = "Wenst U ook gelukkig te zijn, zoals [l]Trikke[/l]? Gebruik dan 1Brood, het zal uw leven veranderen. Gegarandeerd. Trikke is ondertussen geen broodjesverantwoordelijke meer! Hij is opgeklomen tot community manager!"
 
 [home]
-title = "1Brood Bestel Applicatie"
+title = "1Brood: Eenvoudig uw lunch bestellen!"
+companies = "Deze applicatie laat bedrijven of groepen toe op een eenvoudige manier grote bestellingen te verzenden."
 manual = "Een beknopte handleiding tot 1Brood:"
 login = "Login in 1Brood."
 choose = "Kies uw favoriete broodje."

@@ -605,6 +605,8 @@ class Pages_Company extends Pages_Page
 		$me = Profile_Member::getMyself ();
 		$status = $objCompany->getUserStatus ($me);
 		
+		$bShowLogs = Core_Tools::getInput ('_GET', 'details', 'int') == 1;
+		
 		if ($status != 'pending')
 		{
 			$user = Profile_Member::getMember (Core_Tools::getInput ('_GET', 'uid', 'int'));
@@ -626,12 +628,21 @@ class Pages_Company extends Pages_Page
 				$page->set ('return', $text->get ('return'));
 				$page->set ('return_url', self::getUrl ('page=company&id='.$objCompany->getId ()));
 				
+				if (!$bShowLogs)
+				{
+					$page->set ('show_details_url', self::getUrl ('page=company&id='.$objCompany->getId().'&action=poeflog&uid='.$user->getId().'&details=1'));
+				}
+				else
+				{
+					$page->set ('hide_details_url', self::getUrl ('page=company&id='.$objCompany->getId().'&action=poeflog&uid='.$user->getId().'&details=0'));
+				}
+				
 				$page->set ('datum', $text->get ('datum'));
 				$page->set ('amount', $text->get ('amount'));
 				$page->set ('balance', $text->get ('balance'));
 				$page->set ('actor', $text->get ('actor'));
 				
-				foreach ($objCompany->getPoefboekLog ($user) as $v)
+				foreach ($objCompany->getPoefboekLog ($user, $bShowLogs) as $v)
 				{
 					$page->addListValue
 					(
@@ -643,10 +654,13 @@ class Pages_Company extends Pages_Page
 							'newpoef' => Core_Tools::convert_price ($v['newpoef']),
 							'actor_name' => $v['actor_name'],
 							'actor_url' => $v['actor_url'],
-							'comment' => Core_Tools::output_varchar ($v['comment'])
+							'comment' => Core_Tools::output_varchar ($v['comment']),
+							'details' => $v['details']
 						)
 					);
 				}
+				
+				$page->set ('showDetails', $bShowLogs);
 				
 				return $page->parse ('company_poeflog.tpl');
 			}

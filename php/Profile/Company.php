@@ -525,21 +525,37 @@ class Profile_Company
 	}
 	
 	/*
-							'date' => $v['date'],
-						'amount' => Core_Tools::convert_price ($v['amount']),
-						'actor_name' => $v['actor_name'],
-						'actur_url' => $v['actor_url']
+		'date' => $v['date'],
+		'amount' => Core_Tools::convert_price ($v['amount']),
+		'actor_name' => $v['actor_name'],
+		'actur_url' => $v['actor_url']
 	*/
-	public function getPoefboekLog ($objUser)
+	public function getPoefboekLog ($objUser, $bShowDetails = false)
 	{
 		$db = Core_Database::__getInstance ();
 		
-		$logs = $db->select
+		$bShowDetails = $bShowDetails ? true : false;
+		
+		$logs = $db->getDataFromQuery
 		(
-			'players_poefboeklog',
-			array ('*', 'UNIX_TIMESTAMP(l_date) AS date'),
-			"c_id = '".$this->getId ()."' AND plid = '".$objUser->getId ()."'",
-			'l_date DESC'
+			$db->customQuery
+			("
+				SELECT
+					*,
+					UNIX_TIMESTAMP(p.l_date) AS date
+				FROM
+					players_poefboeklog p
+				LEFT JOIN
+					order_prods o ON p.l_action = 'order' AND p.l_actor = o.o_id
+				LEFT JOIN
+					products prod ON o.p_id = prod.p_id
+				WHERE
+					p.c_id = {$this->getId ()} AND 
+					p.plid = {$objUser->getId ()} 
+				" . (!$bShowDetails ? 'GROUP BY p.l_id ' : null) . "
+				ORDER BY
+					p.l_date DESC
+			")
 		);
 		
 		$out = array ();
@@ -548,37 +564,79 @@ class Profile_Company
 		
 		foreach ($logs as $v)
 		{
-			switch ($v['l_action'])
-			{
-				case 'order':
-					$actor_name = $text->get ('order', 'poeflog', 'company') . ' #'.$v['l_actor'];
-					$actor_url = Pages_Page::getUrl ('page=order&oid='.$v['l_actor']);
-				break;
-				
-				default:
-					$user = Profile_Member::getMember ($v['l_actor']);
-					if ($user->isFound ())
-					{
-						$actor_name = $user->getUsername ();
-						$actor_url = 'mailto:'.$user->getEmail ();
-					}
-					else
-					{
-						$actor_name = 'user_not_found';
-						$actor_url = '#';
-					}
-				break;
-			}
-			
-			$out[] = array
+			// Check if there are details available
+			if 
 			(
-				'date' => $v['date'],
-				'amount' => $v['l_amount'],
-				'actor_name' => $actor_name,
-				'actor_url' => $actor_url,
-				'newpoef' => $v['l_newpoef'],
-				'comment' => $v['l_description']
-			);
+				$bShowDetails && 
+				isset ($v['p_name']) && 
+				isset ($v['op_price']) && 
+				isset ($v['op_amount'])
+			)
+			{
+				$details = array 
+				(
+					'amount' => $v['op_amount'],
+					'price' => $v['op_price'],
+					'name' => $v['p_name']
+				);
+			}
+			else
+			{
+				$details = false;
+			}
+		
+			// Are we still processing the same unit?
+			if (isset ($latest) && $latest['id'] == $v['l_id'])
+			{
+				if ($details)
+				{
+					$latest['details'][] = $details;
+				}
+			}
+			else
+			{
+				switch ($v['l_action'])
+				{
+					case 'order':
+						$actor_name = $text->get ('order', 'poeflog', 'company') . ' #'.$v['l_actor'];
+						$actor_url = Pages_Page::getUrl ('page=order&oid='.$v['l_actor']);
+					break;
+				
+					default:
+						$user = Profile_Member::getMember ($v['l_actor']);
+						if ($user->isFound ())
+						{
+							$actor_name = $user->getUsername ();
+							$actor_url = 'mailto:'.$user->getEmail ();
+						}
+						else
+						{
+							$actor_name = 'user_not_found';
+							$actor_url = '#';
+						}
+					break;
+				}
+				
+				$aDetails = array ();
+				if ($details)
+				{
+					$aDetails[] = $details;
+				}
+			
+				$out[] = array
+				(
+					'id' => $v['l_id'],
+					'date' => $v['date'],
+					'amount' => $v['l_amount'],
+					'actor_name' => $actor_name,
+					'actor_url' => $actor_url,
+					'newpoef' => $v['l_newpoef'],
+					'comment' => $v['l_description'],
+					'details' => $aDetails
+				);
+				
+				$latest = &$out[count($out)-1];
+			}
 		}
 		
 		return $out;

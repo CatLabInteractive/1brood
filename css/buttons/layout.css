@@ -542,3 +542,32 @@ table.data td.comment
 	padding: 0px;
 	color: gray;
 }
+
+table td ul
+{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+table.logbook
+{
+	margin-bottom: 5px;
+}
+
+table.logbook td
+{
+	vertical-align: top;
+}
+
+p.detail-links
+{
+	text-align: right;
+}
+
+p.detail-links a
+{
+	border: 1px solid gray;
+	background: #eee;
+	padding: 3px;
+}

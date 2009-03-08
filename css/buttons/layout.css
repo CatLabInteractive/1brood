@@ -388,6 +388,16 @@ table.data, table#products
 	margin-bottom: 15px;
 }
 
+h3
+{
+	font-size: 14px;
+}
+
+table th
+{
+	font-size: 12px;
+}
+
 table.data th
 {
 	background: #ddd;

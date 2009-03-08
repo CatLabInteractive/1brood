@@ -72,3 +72,8 @@ table.productsInfo tr.lastRow.prodMain td
 }
 
 /* End products info */
+
+#banner
+{
+	display: none;
+}

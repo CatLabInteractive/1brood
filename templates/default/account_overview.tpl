@@ -25,7 +25,7 @@
 		<?php foreach ($list_companies as $v) { ?>
 			<li>
 			
-				<div style="float: right; margin-right: 300px;">
+				<div style="float: right; margin-right: 100px;">
 					<a href="<?=$v[2]?>"><?=$poeflog?></a>
 				</div>
 			
@@ -45,7 +45,6 @@
 </p>
 
 <?php if (isset ($list_pending)) { ?>
-
 	<h2><?php echo $pending; ?></h2>
 	<p><?php echo $aboutPending; ?></p>
 	<ul>
@@ -55,5 +54,17 @@
 			</li>
 		<?php } ?>
 	</ul>
-
 <?php } ?>
+
+<h2>Lunch winkels</h2>
+<?php if (isset ($list_shops)) { ?>
+	<ul>
+		<?php foreach ($list_shops as $v) { ?>
+			<li><a href="<?=$v[1]?>"><?=$v[0]?></a></li>
+		<?php } ?>
+	</ul>
+<?php } else { ?>
+	<p>Je beheert geen webwinkels.</p>
+<?php } ?>
+
+<p>Klik <a href="<?=$addshop_url?>">hier</a> om een nieuwe winkel toe te voegen.</p>

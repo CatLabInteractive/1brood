@@ -84,11 +84,11 @@ class Pages_Page
 		{
 			$action = array_shift ($params);
 			$action = str_replace ('page=', '', $action);
-			return ABSOLUTE_URL . $action . '/?' . implode ('&', $params);
+			return RELATIVE_URL . $action . '/'. (count ($params) > 0 ? '?'.implode ('&', $params) : null);
 		}
 		else
 		{
-			return ABSOLUTE_URL . '?' . $url;
+			return RELATIVE_URL . (!empty ($url) ? '?'.$url : null);
 		}
 	}
 

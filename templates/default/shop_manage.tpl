@@ -90,9 +90,8 @@
 	</p>
 	-->
 
-	<div style="text-align: right;">
+	<div style="float: none;">
 		<button type="button" onfocus="addProductRow(<?=$priceColsToShow?>);"><?php echo $addRow; ?></button>
 		<button type="submit" name="submit" value="saveSettings"><?php echo $submit; ?></button>
 	</div>
-	
 </form>

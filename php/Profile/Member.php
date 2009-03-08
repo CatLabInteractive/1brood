@@ -25,6 +25,27 @@ class Profile_Member
 
 		return $in[$id];
 	}
+	
+	public static function getFromEmail ($email)
+	{
+		$db = Core_Database::__getInstance ();
+		
+		$data = $db->select
+		(
+			'players',
+			array ('plid'),
+			"email = '{$db->escape ($email)}'"
+		);
+		
+		if (count ($data) == 1)
+		{
+			return self::getMember ($data[0]['plid']);
+		}
+		else
+		{
+			return false;
+		}
+	}
 
 	private $id, $data = null, $isFound = false;
 
@@ -35,7 +56,7 @@ class Profile_Member
 
 	public function getId ()
 	{
-		return $this->id;
+		return intval ($this->id);
 	}
 	
 	public function setData ($data)
@@ -113,6 +134,8 @@ class Profile_Member
 	*/
 	public function getRegStatus ()
 	{
+		$this->loadData ();
+	
 		$login = Core_Login::__getInstance ();
 		$db = Core_Database::__getInstance ();
 
@@ -130,7 +153,7 @@ class Profile_Member
 				"plid = '".$this->id."'"
 			);
 
-			if (count ($chk) == 0)
+			if (count ($chk) == 0 && intval ($this->data['noCompany']) != 1)
 			{
 				return 1;
 			}
@@ -139,6 +162,23 @@ class Profile_Member
 				return 2;
 			}
 		}
+	}
+	
+	public function setNoCompany ()
+	{
+		$db = Core_Database::__getInstance ();
+		
+		$db->customQuery
+		("
+			UPDATE
+				players
+			SET
+				noCompany = 1
+			WHERE
+				plid = {$this->getId()}
+		");
+		
+		$this->reloadData ();
 	}
 
 	public function getMyCompanies ($pending = false)
@@ -165,6 +205,34 @@ class Profile_Member
 		{
 			$i = count ($companies);
 			$companies[$i] = Profile_Company::getCompany ($v['c_id']);
+			$companies[$i]->setData ($v);
+		}
+
+		return $companies;
+	}
+	
+	public function getMyShops ()
+	{
+		$db = Core_Database::__getInstance ();
+	
+		// logged in
+		$chk = $db->getDataFromQuery ($db->customQuery
+		("
+			SELECT
+				shops.*
+			FROM
+				players_shop
+			LEFT JOIN
+				shops ON players_shop.s_id = shops.s_id
+			WHERE
+				players_shop.plid = {$this->getId()}
+		"));
+
+		$companies = array ();
+		foreach ($chk as $v)
+		{
+			$i = count ($companies);
+			$companies[$i] = Profile_Shop::getShop ($v['s_id']);
 			$companies[$i]->setData ($v);
 		}
 

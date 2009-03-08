@@ -13,6 +13,13 @@ class Pages_Register extends Pages_Page
 		$myself = Profile_Member::getMyself ();
 
 		$action = Core_Tools::getInput ('_GET', 'action', 'varchar', false);
+		
+		// Check for the no-company flag!
+		$noCompany = Core_Tools::getInput ('_GET', 'nocompany', 'varchar', false);
+		if ($noCompany == 'true' && $myself)
+		{
+			$myself->setNoCompany ();
+		}
 
 		if (!$myself)
 		{
@@ -26,6 +33,10 @@ class Pages_Register extends Pages_Page
 		elseif ($action == 'edit')
 		{
 			return $this->getEditProfile ();
+		}
+		elseif ($action == 'shopowner')
+		{
+			return $this->getShopOwner ();
 		}
 		else
 		{
@@ -248,8 +259,48 @@ class Pages_Register extends Pages_Page
 				)
 			);
 		}
+		
+		$page->set ('addshop_url', self::getUrl ('page=register&action=shopowner'));
+		
+		$shops = $myself->getMyShops ();
+		foreach ($shops as $v)
+		{
+			$page->addListValue
+			(
+				'shops',
+				array
+				(
+					Core_Tools::output_varchar ($v->getName ()),
+					self::getUrl ('page=shop&id='.$v->getId ())
+				)
+			);
+		}
 
 		return $page->parse ('account_overview.tpl');
+	}
+	
+	private function getShopOwner ()
+	{
+		$page = new Core_Template ();
+		
+		$page->set ('addshop_url', self::getUrl ('page=shop&action=add'));
+		
+		$shops = Profile_Shop::getShops ();
+		foreach ($shops as $v)
+		{
+			$page->addListValue
+			(
+				'shops',
+				array
+				(
+					'name' => Core_Tools::output_varchar ($v->getName ()),
+					'url' => $this->getUrl ('page=shop&id='.$v->getId()),
+					'location' => Core_Tools::output_varchar ($v->getLocation ())
+				)
+			);
+		}
+		
+		return $page->parse ('account_shop.tpl');
 	}
 	
 	/*

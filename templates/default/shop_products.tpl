@@ -1,4 +1,7 @@
 <h2><?=$title?></h2>
+<?php if (isset ($manage_url)) { ?>
+	<p><a href="<?=$manage_url?>">Winkel beheren</a></p>
+<?php } ?>
 
 <?php if (!empty ($message)) { ?>
 	<div class="message">
@@ -55,4 +58,20 @@
 			<p><?php echo $noProducts; ?></p>
 		<?php } ?>
 	<?php } ?>
+<?php } ?>
+
+<h3>Moderators</h3>
+
+<?php if (isset ($moderator_url)) { ?>
+	<p><a href="<?=$moderator_url?>">Moderators beheren</a></p>
+<?php } ?>
+
+<?php if (isset ($list_moderators)) { ?>	
+	<ul>
+		<?php foreach ($list_moderators as $v) { ?>
+			<li>
+				<a href="<?=$v['url']?>"><?=$v['name']?></a>
+			</li>
+		<?php } ?>
+	</ul>
 <?php } ?>

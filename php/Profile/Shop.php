@@ -321,6 +321,73 @@ class Profile_Shop
 		$this->loadData ();
 		return $this->data['s_currency'];
 	}
+	
+	public function getLocation ()
+	{
+		$this->loadData ();
+		
+		return $this->data['s_gemeente'];
+	}
+	
+	public function getModerators ()
+	{
+		$db = Core_Database::__getInstance ();
+		
+		$users = $db->getDataFromQuery
+		(
+			$db->customQuery
+			("
+				SELECT
+					players.*
+				FROM
+					players_shop
+				LEFT JOIN
+					players USING(plid)
+				WHERE
+					players_shop.s_id = {$this->getId()}
+			")
+		);
+		
+		$out = array ();
+		foreach ($users as $v)
+		{
+			$p = Profile_Member::getMember ($v['plid']);
+			$p->setData ($v);
+			$out[] = $p;
+		}
+
+		return $out;
+	}
+	
+	/*
+		Moderators
+	*/
+	public function addModerator ($objUser)
+	{
+		$db = Core_Database::__getInstance ();
+		$db->insert
+		(
+			'players_shop',
+			array
+			(
+				'plid' => $objUser->getId (),
+				's_id' => $this->getId ()
+			)
+		);
+	}
+	
+	public function removeModerator ($objUser)
+	{
+		$db = Core_Database::__getInstance ();
+		$db->customQuery
+		("
+			REMOVE FROM
+				players_shop
+			WHERE
+				plid = {$objUser->getId ()} AND
+				s_id = {$this->id()}
+		");
+	}
 
 	public function getAdress ()
 	{

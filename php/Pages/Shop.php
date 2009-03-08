@@ -15,6 +15,10 @@ class Pages_Shop extends Pages_Page
 		{
 			return $this->getShopManagement ($shop);
 		}
+		elseif ($action == 'moderator' && $shop->isFound () && $myself && $shop->canModerate ($myself))
+		{
+			return $this->getModeratorManagement ($shop);
+		}
 		elseif ($action == 'categories' && $shop->isFound () && $myself && $shop->canModerate ($myself))
 		{
 			return $this->getManageCategories ($shop);
@@ -149,6 +153,79 @@ class Pages_Shop extends Pages_Page
 			return '<p>'.$text->get ('noLogin').'</p>';
 		}
 	}
+	
+	private function getModeratorManagement ($shop)
+	{
+		$page = new Core_Template ();
+		$text = Core_Text::__getInstance ();
+		
+		// Add a moderator
+		$email = Core_Tools::getInput ('_POST', 'moderator_mail', 'varchar');
+		if ($email)
+		{
+			// Check for player
+			$objUser = Profile_Member::getFromEmail ($email);
+			if ($objUser)
+			{
+				$shop->addModerator ($objUser);
+			}
+			else
+			{
+				$page->set ('error', 'Er is geen gebruiker gevonden met dit email adres.');
+			}
+		}
+		
+		// Remove moderator
+		$id = Core_Tools::getInput ('_GET', 'plid', 'int');
+		$do = Core_Tools::getInput ('_GET', 'do', 'varchar');
+		if ($id && $do)
+		{
+			$mod = Profile_Member::getMember ($id);
+			$myself = Profile_Member::getMyself ();
+			
+			if ($mod && $myself && $myself->getId () != $mod->getId ())
+			{
+				$shop->removeModerator ($mod);
+			}
+			else
+			{
+				$page->set ('error', 'Deze gebruiker is niet gevonden. Je kan jezelf niet verwijderen.');
+			}
+		}
+		
+		// Show
+		$page->set ('action', $this->getUrl ('page=shop&id='.$shop->getId().'&action=moderator'));
+		
+		$page->set
+		(
+			'title',
+			Core_Tools::putIntoText
+			(
+				$text->get ('title', 'overview', 'shop'),
+				array
+				(
+					Core_Tools::output_varchar ($shop->getName ())
+				)
+			)
+		);
+		
+		// Show all moderators
+		foreach ($shop->getModerators () as $v)
+		{
+			$page->addListValue
+			(
+				'moderators',
+				array
+				(
+					'name' => Core_Tools::output_varchar ($v->getFullname ()),
+					'url' => 'mailto:'.$v->getEmail (),
+					'removeUrl' => $this->getUrl ('page=shop&id='.$shop->getId().'&action=moderator&do=remove&plid='.$v->getId ())
+				)
+			);
+		}
+		
+		return $page->parse ('shop_moderators.tpl');
+	}
 
 	public function getOverview ($shop)
 	{
@@ -206,6 +283,12 @@ class Pages_Shop extends Pages_Page
 		$text->setSection ('products');
 
 		$page = new Core_Template ();
+		
+		if ($shop->canModerate (Profile_Member::getMyself ()))
+		{
+			$page->set ('manage_url', self::getUrl ('page=shop&id='.$shop->getId().'&action=manage'));
+			$page->set ('moderator_url', self::getUrl ('page=shop&id='.$shop->getId().'&action=moderator'));
+		}
 
 		$page->set
 		(
@@ -289,6 +372,20 @@ class Pages_Shop extends Pages_Page
 					'name' => $category['c_name'],
 					'products' => $newProducts,
 					'prices' => $category['prices']
+				)
+			);
+		}
+		
+		// Show all moderators
+		foreach ($shop->getModerators () as $v)
+		{
+			$page->addListValue
+			(
+				'moderators',
+				array
+				(
+					'name' => Core_Tools::output_varchar ($v->getFullname ()),
+					'url' => 'mailto:'.$v->getEmail ()
 				)
 			);
 		}

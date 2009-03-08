@@ -280,7 +280,7 @@ class Pages_Order extends Pages_Page
 
 			if 
 			(
-				$confirm == 'submit' && 
+				$confirm && 
 				$amount > 0 && $amount < 10 && 
 				isset ($product['prices'][$priceIn]) && 
 				$product['prices'][$priceIn] !== null

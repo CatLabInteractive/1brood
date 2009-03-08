@@ -6,7 +6,7 @@
 
 <?php } ?>
 
-<table class="data" style="width: 100%;">
+<table class="data">
 	<tr>
 		<td style="vertical-align: top; width: 50%;">
 			<h3><?=$company?></h3>
@@ -26,7 +26,7 @@
 
 	<?php if (isset ($list_products)) { $i = 0; $last = count ($list_products); ?>
 	
-		<table class="productsInfo" style="width: 100%;">
+		<table class="productsInfo">
 
 			<?php foreach ($list_products as $v) { $i ++; ?>
 

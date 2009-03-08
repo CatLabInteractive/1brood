@@ -1,5 +1,5 @@
 <h2><?php echo $title; ?></h2>
-
+
 <?php if (isset ($noPermission)) { ?>
 
 	<p><?php echo $noPermission; ?></p>
@@ -37,13 +37,9 @@
 			<label>
 				<span><?php echo $selectShop; ?>:</span>
 				<select name="add">
-
 					<?php foreach ($list_addshop as $v) { ?>
-
 						<option value="<?php echo $v[1]; ?>"><?php echo $v[0]; ?></option>
-
 					<?php } ?>
-
 				</select>
 			</label>
 

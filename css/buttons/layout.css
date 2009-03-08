@@ -129,17 +129,16 @@ a:hover
 
 #menu ul
 {
-	list-style-position: outside;
 	list-style-type: none;
 	margin-left: 0px;
 	padding: 0px;
-	float: left;
-	padding-bottom: 4px;
+	border-collapse: separate;
 }
 
 #menu ul li
 {
-	clear: left;
+	padding-bottom: 0px;
+	margin-bottom: 5px;
 }
 
 #menu ul li a
@@ -147,13 +146,11 @@ a:hover
 	background: transparent url('../../images/button_end.gif') no-repeat scroll top right;
 	color: #444;
 	display: block;
-	float: left;
 	font: normal 12px arial, sans-serif;
 	height: 24px;
 	margin-right: 6px;
 	padding-right: 18px; /* sliding doors padding */
 	text-decoration: none;
-	margin-bottom: 5px;
 }
 
 #menu ul li a span 
@@ -161,8 +158,9 @@ a:hover
 	background: transparent url('../../images/button.gif') no-repeat;
 	display: block;
 	line-height: 14px;
-	padding: 5px 0 5px 18px;
+	padding: 5px 0px 5px 18px;
 	width: 145px;
+	cursor: pointer;
 } 
 
 #menu ul li a:active 
@@ -175,7 +173,7 @@ a:hover
 #menu ul li a:active span 
 {
 	background-position: bottom left;
-	padding: 6px 0 4px 18px; /* push text down 1px */
+	padding: 6px 0px 4px 18px; /* push text down 1px */
 } 
 
 #basket
@@ -189,6 +187,7 @@ a:hover
 #basket p
 {
 	margin-bottom: 2px;
+	text-align: left;
 }
 
 #basket ul
@@ -206,16 +205,23 @@ a:hover
 
 #login
 {
-	padding: 2px 10px;
+	padding: 0px;
 	border: 1px solid #ccc;
 	margin-bottom: 5px;
-	clear: left;
+	width: 178px;
 }
 
 #login p
 {
 	text-align: left;
 	line-height: 1.2;
+	margin: 0px 10px;
+	margin-bottom: 10px;
+}
+
+#login h2
+{
+	margin-left: 10px;
 }
 
 #login p.false
@@ -225,11 +231,20 @@ a:hover
 
 #login input
 {
-	width: 100%;
+	width: 150px;
 	border: none;
 	border-bottom: 1px solid #dddddd;
 	background: none;
 	color: blue;
+	margin: 0px 0px;
+}
+
+#login label
+{
+	margin: 0px 10px;
+	float: none;
+	clear: none;
+	display: block;
 }
 
 #settings select
@@ -243,9 +258,10 @@ a:hover
 #login button
 {
 	border: 1px solid #dddddd;
-	width: 100%;
+	width: 150px;
 	color: blue;
-	background: none;
+	background: white;
+	margin-left: 0px;
 }
 
 table 
@@ -268,6 +284,7 @@ ul, ol
 	list-style-position: outside;
 	margin-left: 20px;
 	padding-left: 10px;
+	margin-bottom: 5px;
 }
 
 ol.home
@@ -310,6 +327,10 @@ div.message p
 	margin: 2px 2px 2px 2px;
 }
 
+form
+{
+}
+
 #right form label
 {
 	display: block;
@@ -326,9 +347,43 @@ div.message p
 	width: 200px;
 }
 
+form div
+{
+	float: left;
+}
+
+form label.checkbox
+{
+	position: relative;
+}
+
+form label.checkbox input
+{
+	margin-right: 5px;
+	float: left;
+}
+
+form label.checkbox span
+{
+	float: left;
+	display: block;
+	line-height: 1.2;
+}
+
+form label.important span
+{
+	font-weight: bold;
+}
+
+form div p
+{
+	clear: left;
+	margin-bottom: 25px;
+}
+
 table.data, table#products
 {
-	width: 100%;
+	width: 650px;
 	border: 1px solid #dddddd;
 	margin-bottom: 15px;
 }
@@ -364,6 +419,11 @@ table.data td.rechts
 {
 }
 
+table td
+{
+	font-size: 11px;
+}
+
 p.rightLink
 {
 	float: right;
@@ -388,7 +448,7 @@ textarea
 
 table#products
 {
-	width: 100%;
+	width: 650px;
 	padding: 0px;
 	margin-bottom: 5px;
 }
@@ -445,16 +505,18 @@ table#products tr#noRows td
 
 #right button
 {
-	padding: 5px;
+	padding: 2px 2px;
+	margin: 0px;
 	border: 1px solid #dddddd;
 	background: #eeeeee;
+	font-size: 12px;
 }
 
 /* Start product info */
 table.productsInfo
 {
 	border: 1px solid #dddddd;
-	width: 100%;
+	width: 650px;
 }
 
 table.productsInfo *

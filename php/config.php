@@ -19,6 +19,7 @@ if (
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', '1brood');
 	
+	define ('RELATIVE_URL', '/1brood/');
 	define ('ABSOLUTE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/1brood/');
 }
 else
@@ -28,6 +29,7 @@ else
 	define ('DB_SERVER', 'localhost');
 	define ('DB_DATABASE', 'b6557bro_brood');
 	
+	define ('RELATIVE_URL', '/');
 	define ('ABSOLUTE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');
 }
 

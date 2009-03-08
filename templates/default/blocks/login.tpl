@@ -22,30 +22,24 @@
 	
 	<form action="<?php echo $loginAction; ?>" method="post">
 
-		<div>
 			<label>
 				<?php echo $email; ?>:<br />
 				<input type="text" name="email" />
 			</label>
-		</div>
 
 		
-		<div>
 			<label>
 				<?php echo $password; ?>:<br />
 				<input type="password" name="password" />
 			</label>
-		</div>
 		
-		<div>
 			<label>
 				<button type="submit"><?php echo $submit; ?></button>
 			</label>
-		</div>
 		
 	</form>
 	
-	<p style="margin-top: 10px; text-align: center;">
+	<p style="margin-top: 10px; text-align: center; clear:left;">
 		<a href="<?=$lostpass_url?>"><?=$lostpass?></a>
 	</p>
 

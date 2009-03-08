@@ -2,7 +2,7 @@
 <p><a href="<?=$return_url?>"><?=$return?></a></p>
 
 <?php if (isset ($list_logs)) { ?>
-	<table class="data logbook" style="width: 100%;">
+	<table class="data logbook">
 	
 		<tr>
 			<th><?=$datum?></th>

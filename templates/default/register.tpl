@@ -35,6 +35,6 @@
 		<input name="password2" type="password" />
 	</label>
 
-	<button name="register" value="register"><?php echo $submit; ?></button>
+	<button type="submit" name="register" value="register"><?php echo $submit; ?></button>
 
 </form>

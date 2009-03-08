@@ -546,7 +546,7 @@ class Profile_Company
 				FROM
 					players_poefboeklog p
 				LEFT JOIN
-					order_prods o ON p.l_action = 'order' AND p.l_actor = o.o_id
+					order_prods o ON p.l_action = 'order' AND p.l_actor = o.o_id AND o.plid = p.plid
 				LEFT JOIN
 					products prod ON o.p_id = prod.p_id
 				WHERE

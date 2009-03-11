@@ -25,10 +25,20 @@ class Pages_Register extends Pages_Page
 		{
 			return $this->getRegistrationForm ();
 		}
-
-		elseif ($action == 'companies' || $myself->getRegStatus () == 1)
+		elseif ($action == 'companies')
 		{
 			return $this->getChooseCompany ();
+		}
+		elseif ($myself->getRegStatus () == 1)
+		{
+			if ($noCompany == 'false')
+			{
+				return $this->getChooseCompany ();
+			}
+			else
+			{
+				header ('Location: '.$this->getUrl ('page=welcome'));
+			}
 		}
 		elseif ($action == 'edit')
 		{

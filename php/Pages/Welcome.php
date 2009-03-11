@@ -15,11 +15,11 @@ class Pages_Welcome extends Pages_Page
 		switch ($action)
 		{
 			case 'honger':
-				header ('Location: '.$this->getUrl ('page=register'));
+				header ('Location: '.$this->getUrl ('page=register&nocompany=false'));
 			break;
 			
 			case 'geld':
-				header ('Location: '.$this->getUrl ('page=register&nocompany=true'));
+				header ('Location: '.$this->getUrl ('page=register&nocompany=true&action=shopowner'));
 			break;
 		}
 	

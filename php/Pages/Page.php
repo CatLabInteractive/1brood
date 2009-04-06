@@ -77,18 +77,27 @@ class Pages_Page
 	}
 
 	/* Various */
-	public static function getUrl ($url)
+	public static function getUrl ($url, $absolute = false)
 	{
+		if ($absolute)
+		{
+			$url = ABSOLUTE_URL;
+		}
+		else
+		{
+			$url = RELATIVE_URL;
+		}
+	
 		$params = explode ('&', $url);
 		if (substr ($params[0], 0, 5) == 'page=')
 		{
 			$action = array_shift ($params);
 			$action = str_replace ('page=', '', $action);
-			return RELATIVE_URL . $action . '/'. (count ($params) > 0 ? '?'.implode ('&', $params) : null);
+			return $url . $action . '/'. (count ($params) > 0 ? '?'.implode ('&', $params) : null);
 		}
 		else
 		{
-			return RELATIVE_URL . (!empty ($url) ? '?'.$url : null);
+			return $url . (!empty ($url) ? '?'.$url : null);
 		}
 	}
 

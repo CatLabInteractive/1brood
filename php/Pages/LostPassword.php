@@ -154,7 +154,7 @@ class Pages_LostPassword extends Pages_Page
 			(
 				'key' => $key,
 				'name' => $toName,
-				'url' => self::getUrl ('page=lostPassword&id='.$id.'&key='.$key)
+				'url' => self::getUrl ('page=lostPassword&id='.$id.'&key='.$key, true)
 			)
 		);
 		

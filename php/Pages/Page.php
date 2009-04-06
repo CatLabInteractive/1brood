@@ -81,11 +81,11 @@ class Pages_Page
 	{
 		if ($absolute)
 		{
-			$url = ABSOLUTE_URL;
+			$ab_url = ABSOLUTE_URL;
 		}
 		else
 		{
-			$url = RELATIVE_URL;
+			$ab_url = RELATIVE_URL;
 		}
 	
 		$params = explode ('&', $url);
@@ -93,11 +93,11 @@ class Pages_Page
 		{
 			$action = array_shift ($params);
 			$action = str_replace ('page=', '', $action);
-			return $url . $action . '/'. (count ($params) > 0 ? '?'.implode ('&', $params) : null);
+			return $ab_url . $action . '/'. (count ($params) > 0 ? '?'.implode ('&', $params) : null);
 		}
 		else
 		{
-			return $url . (!empty ($url) ? '?'.$url : null);
+			return $ab_url . (!empty ($url) ? '?'.$url : null);
 		}
 	}
 

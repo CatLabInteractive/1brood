@@ -116,7 +116,7 @@ class Pages_Page
 	protected function getFooter ()
 	{
 		return '&copy;'.
-			' <a href="http://www.neuroninteractive.eu/">Neuron Interactive</a> '
+			' <a href="http://www.catlab.eu/">CatLab Interactive</a> '
 			. (date ('Y') == 2007 ? '2007' : '2007 - '.date ('Y'));
 	}
 	

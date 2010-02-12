@@ -23,6 +23,8 @@
 
 		<script src="<?=ABSOLUTE_URL?>js/common.js" type="text/javascript"></script>
 
+		<meta name="google-site-verification" content="ZXITmwpBA0XrUU-MaNAXydxVQ52CD_nXxoUzz4CB_rE" />
+
 	</head>
 	
 	<body>

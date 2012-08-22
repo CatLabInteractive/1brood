@@ -77,7 +77,7 @@
 		<?php } else { ?>
 
 			<tr id="noRows">
-				<td colspan="4"><?php echo $noRows; ?></td>
+				<td colspan="<?php echo $priceColsToShow + 3 ?>"><?php echo $noRows; ?></td>
 			</tr>
 
 		<?php } ?>

@@ -24,10 +24,10 @@ if (
 }
 else
 {
-	define ('DB_USERNAME', 'b6557bro_brood');
-	define ('DB_PASSWORD', 'Slwopza45b');
+	define ('DB_USERNAME', 'k000171_2');
+	define ('DB_PASSWORD', 'frHCB96tNJXW');
 	define ('DB_SERVER', 'localhost');
-	define ('DB_DATABASE', 'b6557bro_brood');
+	define ('DB_DATABASE', 'k000171_2_1brood');
 	
 	define ('RELATIVE_URL', '/');
 	define ('ABSOLUTE_URL', 'http://'.$_SERVER['SERVER_NAME'].'/');

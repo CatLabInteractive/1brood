@@ -4,7 +4,7 @@ if (
 	isset ($_SERVER['HTTPS']) ||
 	(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] != "http")
 ) {
-	$absluteUrl = 'https';
+	$absoluteUrl = 'https';
 } else {
 	$absoluteUrl = 'http';
 }

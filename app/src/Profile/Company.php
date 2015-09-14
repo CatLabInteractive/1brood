@@ -474,7 +474,7 @@ class Profile_Company
 			'players_comp',
 			array
 			(
-				'poefboek' => '--' . $amount
+				'poefboek' => '--' . number_format($amount, null, '.')
 			),
 			"plid = '".$objUser->getId ()."' && c_id = '".$this->getId ()."'"
 		);

@@ -548,6 +548,9 @@ class Pages_Order extends Pages_Page
 	private function sendMail ($order, $email, $toName = "")
 	{
 		$myself = Profile_Member::getMyself ();
+		if (!$myself) {
+			return;
+		}
 		
 		Core_Tools::sendMail 
 		(

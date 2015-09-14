@@ -1,4 +1,6 @@
 <?php
+$username = getenv("MANDRILL_USERNAME");
+$key = getenv("MANDRILL_KEY");
 
 return array (
 
@@ -6,8 +8,8 @@ return array (
 
 	'services' => array (
 		'mandrill' => array (
-			'username' => 'your username here',
-			'key' => 'abcdef'
+			'username' => $username,
+			'key' => $key
 		)
 	)
 

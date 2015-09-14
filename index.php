@@ -10,5 +10,3 @@ $page = array_shift ($page);
 // Fetch the right page
 $page = Pages_Page::getPage ($page);
 echo $page->getHTML ();
-
-?>

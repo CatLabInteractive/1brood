@@ -1,0 +1,146 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "b745601c143c317a3bc6072399fcdeb6",
+    "packages": [
+        {
+            "name": "catlabinteractive/mailer",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CatLabInteractive/Mailer.git",
+                "reference": "02d5827a345d59d400b3f416fea3519fe983e7ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CatLabInteractive/Mailer/zipball/02d5827a345d59d400b3f416fea3519fe983e7ad",
+                "reference": "02d5827a345d59d400b3f416fea3519fe983e7ad",
+                "shasum": ""
+            },
+            "require": {
+                "catlabinteractive/neuron": "2.*",
+                "mandrill/mandrill": "1.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CatLab\\Mailer\\": "src/CatLab/Mailer"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thijs Van der Schaeghe",
+                    "email": "info@catlab.be",
+                    "homepage": "https://www.catlab.eu/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mailer module for Neuron.",
+            "homepage": "http://github.com/catlabinteractive/mailer",
+            "keywords": [
+                "framework"
+            ],
+            "time": "2015-09-14 11:05:02"
+        },
+        {
+            "name": "catlabinteractive/neuron",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CatLabInteractive/Neuron.git",
+                "reference": "75114170e52d3cec8d523c4c9eee3820c8a98d80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CatLabInteractive/Neuron/zipball/75114170e52d3cec8d523c4c9eee3820c8a98d80",
+                "reference": "75114170e52d3cec8d523c4c9eee3820c8a98d80",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gettext": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Neuron\\": "src/Neuron/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thijs Van der Schaeghe",
+                    "email": "info@catlab.be",
+                    "homepage": "https://www.catlab.eu/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Very light php framework. Should probably not be used.",
+            "homepage": "http://github.com/catlabinteractive/neuron",
+            "keywords": [
+                "framework"
+            ],
+            "time": "2014-12-16 01:43:12"
+        },
+        {
+            "name": "mandrill/mandrill",
+            "version": "1.0.54",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/mailchimp/mandrill-api-php.git",
+                "reference": "9f336b08ea148c80db3b694f3dc737cd4f414e19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/mailchimp/mandrill-api-php/get/9f336b08ea148c80db3b694f3dc737cd4f414e19.zip",
+                "reference": "9f336b08ea148c80db3b694f3dc737cd4f414e19",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Mandrill": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Mandrill Devs",
+                    "email": "community@mandrill.com",
+                    "homepage": "http://mandrill.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "API client library for the Mandrill email as a service platform",
+            "homepage": "https://bitbucket.org/mailchimp/mandrill-api-php",
+            "keywords": [
+                "api",
+                "email"
+            ],
+            "time": "2014-10-16 21:08:20"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

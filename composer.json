@@ -1,0 +1,16 @@
+{
+  "name": "catlabinteractive/1brood",
+  "type": "application",
+  "authors" : [
+    {
+      "name": "Thijs Van der Schaeghe",
+      "email" : "info@catlab.be",
+      "homepage" : "https://www.catlab.eu/",
+      "role" : "Developer"
+    }
+  ],
+  "require" : {
+    "catlabinteractive/neuron" : "*",
+    "catlabinteractive/mailer" : "*"
+  }
+}

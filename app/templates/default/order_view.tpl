@@ -1,4 +1,5 @@
 <h2>Bestelling #<?=$orderId?></h2>
+<p><?php echo $date->format ('d/m/Y'); ?></p>
 
 <?php if (isset ($sended)) { ?>
 

@@ -673,6 +673,7 @@ class Pages_Order extends Pages_Page
 		$page->set ('company_adres', $company->getAdress ());
 		$page->set ('shop_adres', $shop->getAdress ());
 		$page->set ('currency', Core_Tools::output_varchar ($shop->getCurrency ()));
+		$page->set ('date', new DateTime($order['o_orderDate']));
 
 		$page->set ('thanks', $text->get ('thanks'));
 

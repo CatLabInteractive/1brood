@@ -23,6 +23,7 @@ class Module implements \Neuron\Interfaces\Module
 	 */
 	public function setRoutes (\Neuron\Router $router)
 	{
+		$router->get('/', 'Pages_About@getHTML');
 		$router->get('/about/{a?}/{b?}/{c?}/{d?}', 'Pages_About@getHTML');
 		$router->match('POST|GET', '/home/{a?}/{b?}/{c?}/{d?}', 'Pages_Home@getHTML');
 		$router->match('POST|GET', '/register/{a?}/{b?}/{c?}/{d?}', 'Pages_Register@getHTML');

@@ -95,27 +95,7 @@ function __autoload ($class_name)
 
 function customMail ($target, $subject, $msg)
 {
-
-	$mail = new Core_PHPMailer ();
-
-	$mail->IsSMTP();                                   // send via SMTP
-	$mail->Host     = "mail.dolumar.be"; // SMTP servers
-	$mail->Port = 587;
-	$mail->SMTPAuth = true;     // turn on SMTP authentication
-	$mail->Username = "noreply+dolumar.be";  // SMTP username
-	$mail->Password = "aukv0006"; // SMTP password
-	
-	$mail->From     = "no-reply@dolumar.be";
-	$mail->FromName = "Dolumar";
-	
-	$mail->isHtml (false);
-	
-	$mail->AddAddress($target); 
-	
-	$mail->Subject  =  $subject;
-	$mail->Body = $msg;
-	
-	$mail->Send ();
+	die ('No mailer defined');
 }
 
 // Zoom level

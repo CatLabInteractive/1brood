@@ -12,5 +12,10 @@
   "require" : {
     "catlabinteractive/neuron" : "*",
     "catlabinteractive/mailer" : "*"
+  },
+  "autoload": {
+    "classmap" : [
+      "app/src/"
+    ]
   }
 }

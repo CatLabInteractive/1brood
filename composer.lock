@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b745601c143c317a3bc6072399fcdeb6",
+    "hash": "d5540044e1a7b98dc5ec0d7034b508fb",
     "packages": [
         {
             "name": "catlabinteractive/mailer",

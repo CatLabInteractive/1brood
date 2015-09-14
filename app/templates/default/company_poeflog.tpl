@@ -73,7 +73,7 @@
 	</table>
 	
 	<p class="detail-links">
-		<?php if ($show_details_url) { ?>
+		<?php if (isset ($show_details_url)) { ?>
 			<a href="<?=$show_details_url?>">Toon details</a>
 		<?php } elseif ($hide_details_url) { ?>
 			<a href="<?=$hide_details_url?>">Verberg details</a>

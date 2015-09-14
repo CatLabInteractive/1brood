@@ -177,7 +177,8 @@ class Pages_Order extends Pages_Page
 			foreach ($category['prices'] as $price)
 			{
 				$orderUrl[$price['p_id']] = 'page=order&cid='.$company->getId ().'&sid='.$shop->getId ().'&price='.$price['p_id'];
-			}
+			}
+
 			
 			$newProducts = array ();
 			if (isset ($catProducts[$category['c_id']])) 
@@ -599,7 +600,6 @@ class Pages_Order extends Pages_Page
 				companies ON orders.c_id = companies.c_id
 			LEFT JOIN
 				players_comp ON players_comp.c_id = companies.c_id
-				AND players_comp.plid = '".$userID."'
 			LEFT JOIN
 				shops ON orders.s_id = shops.s_id
 			WHERE

@@ -237,6 +237,7 @@ a:hover
 	background: none;
 	color: blue;
 	margin: 0px 0px;
+	font-size: 14px;
 }
 
 #login label
@@ -465,38 +466,36 @@ table#products
 
 table#products td
 {
-	padding: 0px 0px 0px 0px;
-	margin: 0px 0px 0px 0px;
+	padding: 0 5px;
+	margin: 0;
 	line-height: 1;
+	background-color: #eeeeee;
 }
 
 table#products th
 {
-	font-size: 10px;
+	font-size: 14px;
 	text-align: left;
 	background-color: #eeeeee;
-	padding: 1px 2px;
+	padding: 5px 6px;
 }
 
 table#products input
 {
-	padding: 2px;
-	margin: 0px;
+	padding: 5px 0;
 	color: blue;
 	background-color: #eeeeee;
-	font-size: 10px;
-	margin: 0px;
+	font-size: 12px;
 	border: none;
 	width: 100%;
-	margin-bottom: 1px;
+	margin: 0 0 1px;
 }
 
 table#products select
 {
-	width: 100%;
+	width: 80%;
 	padding: 0px;
-	height: 12px;
-	font-size: 8px;
+	font-size: 10px;
 	margin: 0px;
 }
 
@@ -515,11 +514,13 @@ table#products tr#noRows td
 
 #right button
 {
-	padding: 2px 2px;
-	margin: 0px;
 	border: 1px solid #dddddd;
 	background: #eeeeee;
 	font-size: 12px;
+}
+
+button {
+	padding: 6px 12px;
 }
 
 /* Start product info */

@@ -109,46 +109,15 @@ class Pages_LostPassword extends Pages_Page
 	
 	private function sendMail ($id, $key, $email, $toName = "")
 	{
+
+
 		$text = Core_Text::__getInstance ();
-	
-		$myself = Profile_Member::getMyself ();
-	
-		$mail = new Mailer_PHPMailer ();
 
-		$mail->IsHTML(false);
-		$mail->CharSet = 'UTF8';
-		
-		$useAuth = defined ('MAILER_USER') && defined ('MAILER_PASSWORD');
-
-		// Authenticate
-		$mail->Mailer = MAILER_MAILER;
-		$mail->SMTPAuth = $useAuth;
-		
-		$mail->Host = MAILER_HOST;
-		$mail->Port = MAILER_PORT;
-		
-		if ($useAuth)
-		{
-			$mail->Username = MAILER_USER;
-			$mail->Password = MAILER_PASSWORD;
-		}
-
-		// Make yourself.
-		if (defined ('MAILER_FROM'))
-		{
-			$mail->From = MAILER_FROM;
-		}
-		
-		$mail->FromName = 'noreply';
-
-		$mail->addAddress ($email, $toName);
-
-		$mail->Subject = $text->get ('subject', 'lostpass', 'main');
-		$mail->Body = Core_Tools::putIntoText 
+		$body = Core_Tools::putIntoText
 		(
-			$text->get ('text1', 'lostpass', 'main') . "\n\n" . 
-			$text->get ('text2', 'lostpass', 'main') . "\n\n" . 
-			$text->get ('text3', 'lostpass', 'main') . "\n\n" . 
+			$text->get ('text1', 'lostpass', 'main') . "\n\n" .
+			$text->get ('text2', 'lostpass', 'main') . "\n\n" .
+			$text->get ('text3', 'lostpass', 'main') . "\n\n" .
 			$text->get ('text4', 'lostpass', 'main'),
 			array
 			(
@@ -157,9 +126,17 @@ class Pages_LostPassword extends Pages_Page
 				'url' => self::getUrl ('page=lostPassword&id='.$id.'&key='.$key, true)
 			)
 		);
-		
-		$mail->Priority = 2;
-		$mail->Send ();
+
+		Core_Tools::sendMail(
+			$text->get ('subject', 'lostpass', 'main'),
+			$body,
+			$email,
+			$toName,
+			null,
+			defined('MAILER_FROM') ? MAILER_FROM : null,
+			false,
+			false
+		);
 	}
 	
 	private function getChangePassword ($id, $key)
@@ -178,7 +155,7 @@ class Pages_LostPassword extends Pages_Page
 			"plid = ".intval ($id)." AND seckey = '".$db->escape ($key)."'"
 		);
 		
-		if (trim ($chk) != "" AND count ($chk) === 1)
+		if (count ($chk) === 1)
 		{
 			$password1 = Core_Tools::getInput ('_POST', 'pass1', 'varchar');
 			$password2 = Core_Tools::getInput ('_POST', 'pass2', 'varchar');

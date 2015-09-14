@@ -23,7 +23,6 @@ class Module implements \Neuron\Interfaces\Module
 	 */
 	public function setRoutes (\Neuron\Router $router)
 	{
-		$router->get('/{a?}/{b?}/{c?}/{d?}', 'Pages_About@getHTML');
 		$router->get('/about/{a?}/{b?}/{c?}/{d?}', 'Pages_About@getHTML');
 		$router->match('POST|GET', '/home/{a?}/{b?}/{c?}/{d?}', 'Pages_Home@getHTML');
 		$router->match('POST|GET', '/register/{a?}/{b?}/{c?}/{d?}', 'Pages_Register@getHTML');
@@ -32,5 +31,6 @@ class Module implements \Neuron\Interfaces\Module
 		$router->match('POST|GET', '/donate/{a?}/{b?}/{c?}/{d?}', 'Pages_Donate@getHTML');
 		$router->match('POST|GET', '/order/{a?}/{b?}/{c?}/{d?}', 'Pages_Order@getHTML');
 		$router->match('POST|GET', '/shop/{a?}/{b?}/{c?}/{d?}', 'Pages_Shop@getHTML');
+		$router->match('POST|GET', '/lostPassword/{a?}/{b?}/{c?}/{d?}', 'Pages_LostPassword@getHTML');
 	}
 }

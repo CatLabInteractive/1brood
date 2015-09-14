@@ -7,9 +7,9 @@ forWho1 = "1Brood is er speciaal voor bedrijven die dagelijks een lunch bestelle
 cost = "Hoeveel kost het?"
 cost1 = "Voor bedrijven die minder dan 25 werknemers hebben en Wax Interactive noemen, is het volledig gratis! Voor anderen ook."
 examp = "Praktijkvoorbeeld"
-examp1 = "[l]Trikke[/l] is de broodjesverantwoordelijke voor een bedrijf. Elke dag laat hij alle werknemers tot hem komen om broodjes te bestellen. De werknemers moeten uren in de rij staan om aan de beurt te komen. Als het eindelijk aan hen is, mogen ze hun keuze op een blaadje schrijven en het verschuldigde bedrag in een potje stoppen. Vaak hebben ze echter ofwel te groot, ofwel te weinig geld mee, waardoor [l]Trikke[/l] met poef moet werken. Het duurt dus niet lang of [l]Trikke[/l]'s scherm hangt vol met post-its© en het hele systeem wordt erg verwarrend."
-examp2 = "Tot [l]Trikke[/l] 1Brood ontdekt! Nu legt elke werknemer elke week een hoop geld in de pot, dat [l]Trikke[/l] inbrengt in de 1Brood poefboek! Elke werknemer weet op elk moment hoeveel 1Brood krediet hij nog heeft staan! [l]Trikke[/l] is nu een gelukkig man geworden, want zijn werk is nu veel gemakkelijker."
-examp3 = "Wenst U ook gelukkig te zijn, zoals [l]Trikke[/l]? Gebruik dan 1Brood, het zal uw leven veranderen. Gegarandeerd. Trikke is ondertussen geen broodjesverantwoordelijke meer! Hij is opgeklomen tot community manager!"
+examp1 = "Trikke is de broodjesverantwoordelijke voor een bedrijf. Elke dag laat hij alle werknemers tot hem komen om broodjes te bestellen. De werknemers moeten uren in de rij staan om aan de beurt te komen. Als het eindelijk aan hen is, mogen ze hun keuze op een blaadje schrijven en het verschuldigde bedrag in een potje stoppen. Vaak hebben ze echter ofwel te groot, ofwel te weinig geld mee, waardoor Trikke met poef moet werken. Het duurt dus niet lang of Trikke's scherm hangt vol met post-its© en het hele systeem wordt erg verwarrend."
+examp2 = "Tot Trikke 1Brood ontdekt! Nu legt elke werknemer elke week een hoop geld in de pot, dat Trikke inbrengt in de 1Brood poefboek! Elke werknemer weet op elk moment hoeveel 1Brood krediet hij nog heeft staan! Trikke is nu een gelukkig man geworden, want zijn werk is nu veel gemakkelijker."
+examp3 = "Wenst U ook gelukkig te zijn, zoals Trikke? Gebruik dan 1Brood, het zal uw leven veranderen. Gegarandeerd. Trikke is ondertussen geen broodjesverantwoordelijke meer! Hij is opgeklomen tot community manager!"
 
 [home]
 title = "1Brood Bestel Applicatie"

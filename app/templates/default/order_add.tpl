@@ -12,7 +12,7 @@
 
 	<p><?php echo $about; ?></p>
 
-	<form method="post" action="<?php echo $formAction; ?>">
+	<form method="post" action="<?php echo isset($formAction) ? $formAction : ''; ?>">
 
 		<p class="product">
 			<span class="product"><?php echo $product; ?></span><br />

@@ -117,7 +117,8 @@ class Pages_Page
 	{
 		return '&copy;'.
 			' <a href="http://www.catlab.eu/">CatLab Interactive</a> '
-			. (date ('Y') == 2007 ? '2007' : '2007 - '.date ('Y'));
+			. (date ('Y') == 2007 ? '2007' : '2007 - '.date ('Y')) . '<br />' .
+			'This project is <a href="https://github.com/CatLabInteractive/1brood" target="_BLANK">open source</a>';
 	}
 	
 	protected function getMenu ()

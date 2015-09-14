@@ -8,7 +8,7 @@
 	<p class="false"><?=$this->getText ('error')?></p>
 <?php } ?>
 
-<form action="<?php echo $form_action; ?>" method="post">
+<form action="<?php echo isset($form_action) ? $form_action : null; ?>" method="post">
 
 	<label>
 		<span><?=$this->getText ('firstname', 'register')?>:</span>

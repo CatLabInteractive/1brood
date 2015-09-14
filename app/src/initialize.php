@@ -8,7 +8,7 @@ define ('APP_VERSION', 0.2);
 
 define ('BASE_PATH', dirname (dirname (__FILE__)));
 
-define ('ABSOLUTE_URL', \Neuron\Config::get('app.url'));
+define ('ABSOLUTE_URL', \Neuron\Config::get('app.absoluteurl'));
 define ('RELATIVE_URL', \Neuron\Config::get('app.url'));
 
 define ('TIME_ZONE', 'Europe/Brussels');
@@ -25,12 +25,14 @@ define ('LANGUAGE_DIR', BASE_PATH . '/language/');
 define ('TEMPLATES_DIR', 'templates/');
 
 // Google stuff
-define ('GOOGLE_ANALYTICS', 'UA-459768-12');
+define ('GOOGLE_ANALYTICS', \Neuron\Config::get('google.analytics.id'));
 
 define ('DB_SERVER', \Neuron\Config::get('database.mysql.host'));
 define ('DB_USERNAME', \Neuron\Config::get('database.mysql.username'));
 define ('DB_PASSWORD', \Neuron\Config::get('database.mysql.password'));
 define ('DB_DATABASE', \Neuron\Config::get('database.mysql.database'));
+
+define ('MAILER_FROM', \Neuron\Config::get('mailer.from'));
 
 if (isset ($_GET['language'])) {
 	if (file_exists (LANGUAGE_DIR . $_GET['language']) && is_dir (LANGUAGE_DIR . $_GET['language'])) {

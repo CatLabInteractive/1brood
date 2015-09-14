@@ -670,61 +670,54 @@ class Core_Tools
 		return $dur;
 	}
 	
-	public static function sendMail ($subject, $html, $email, $toName = "", $fromName = null, $fromEmail = null, $ccMyself = true)
+	public static function sendMail ($subject, $html, $email, $toName = "", $fromName = null, $fromEmail = null, $ccMyself = true, $isHtml = true)
 	{
-		$mail = new Mailer_PHPMailer ();
+		$mailer = \CatLab\Mailer\Mailer::fromConfig();
 
-		$mail->IsHTML(true);
-		$mail->CharSet = 'UTF8';
-		
-		$useAuth = defined ('MAILER_USER') && defined ('MAILER_PASSWORD');
+		$mail = new \CatLab\Mailer\Models\Mail();
 
-		// Authenticate
-		$mail->Mailer = MAILER_MAILER;
-		$mail->SMTPAuth = $useAuth;
-		
-		$mail->Host = MAILER_HOST;
-		$mail->Port = MAILER_PORT;
-		
-		if ($useAuth)
-		{
-			$mail->Username = MAILER_USER;
-			$mail->Password = MAILER_PASSWORD;
-		}
+		if (defined('MAILER_FROM')) {
 
-		// Make yourself.
-		if (defined ('MAILER_FROM'))
-		{
-			$mail->From = MAILER_FROM;
-		}
-		
-		if (isset ($fromName))
-		{
-			$mail->FromName = $fromName;
+			$from = new \CatLab\Mailer\Models\Contact();
+			$from->setEmail(MAILER_FROM);
+			if ($fromName) {
+				// Set name.
+				$from->setName($fromName);
+			}
+
+			$mail->setFrom($from);
 		}
 		
 		if (isset ($fromEmail))
 		{
-			$mail->AddReplyTo ($fromEmail);
+			$replyTo = new \CatLab\Mailer\Models\Contact();
+			$replyTo->setEmail($fromEmail);
+
+			if ($fromName) {
+				$replyTo->setName($fromName);
+			}
+
+			$mail->setReplyTo($replyTo);
 		}
 		
 		//$mail->ConfirmReadingTo = $myself->getEmail ();
-
-		$mail->addAddress ($email, $toName);
+		$to = $mail->getTo();
+		$to[] = \CatLab\Mailer\Models\Contact::fromMixed($email)->setName($toName);
 		
-		if (isset ($fromName) && isset ($fromEmail) && $ccMyself)
-		{
-			$mail->addCC ($fromEmail, $fromName);
+		if (isset ($fromName) && isset ($fromEmail) && $ccMyself) {
+			$cc = $mail->getCc();
+			$cc[] = \CatLab\Mailer\Models\Contact::fromMixed($fromEmail)->setName($fromEmail);
 		}
 
-		$mail->Subject = $subject;
-		$mail->Body = $html;
-		
-		$mail->Priority = 2;
+		$mail->setSubject($subject);
 
-		$mail->Send ();
+		if ($isHtml) {
+			$mail->setBody($html);
+		} else {
+			$mail->setText($html);
+		}
+
+		$mailer->send($mail);
 	}
 
 }
-
-?>

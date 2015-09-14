@@ -12,7 +12,7 @@
 
 	<p><?=$about?></p>
 
-	<form method="post" action="<?=$action?>">
+	<form method="post" action="<?=isset($action) ? $action : ''?>">
 		<label>
 			<?=$email?>:<br />
 			<input type="text" name="email" />

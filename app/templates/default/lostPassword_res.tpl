@@ -10,7 +10,7 @@
 		<p class="false"><?=$warning?></p>
 	<?php } ?>
 
-	<form method="post" action="<?=$action?>">
+	<form method="post" action="<?php echo isset($action) ? $action : '' ?>">
 		<div>
 			<label>
 				<?=$pass1?>:<br />

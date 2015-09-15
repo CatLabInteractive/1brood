@@ -30,6 +30,7 @@ order = "Nu Bestellen"
 submit = "Bestelling versturen"
 donations = "Bijdragen"
 forum = "Forum & Support"
+shoplist = "Geregistreerde winkels"
 
 [basket]
 title = "Bestellingen"

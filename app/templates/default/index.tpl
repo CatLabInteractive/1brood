@@ -114,7 +114,8 @@
 
 						echo $o;
 
-					?>
+					?><br />
+					<a href="<?php echo $order_url[1]; ?>"><?php echo $order_url[0]; ?></a>
 				</p>
 			</div>
 

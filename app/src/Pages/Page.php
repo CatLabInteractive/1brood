@@ -72,6 +72,8 @@ class Pages_Page
 		
 		$db = Core_Database::__getInstance ();
 		$page->set ('mysqlCount', $db->getCounter ());
+
+		$page->set ('order_url', array ($text->get ('shoplist', 'menu', 'main'), self::getUrl('page=order')));
 		
 		return $page->parse ('index.tpl');
 	}
@@ -145,7 +147,6 @@ class Pages_Page
 			(
 				array ('home', 'page=home'),
 				array ('about', 'page=about'),
-				array ('order', 'page=order'),
 				array ('register', 'page=register'),
 			);
 		}
@@ -186,7 +187,6 @@ class Pages_Page
 				)
 			);
 		}
-
 
 		return $page->parse ('blocks/menu.tpl');
 	}

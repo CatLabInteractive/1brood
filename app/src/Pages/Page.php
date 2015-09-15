@@ -145,7 +145,8 @@ class Pages_Page
 			(
 				array ('home', 'page=home'),
 				array ('about', 'page=about'),
-				array ('register', 'page=register')
+				array ('order', 'page=order'),
+				array ('register', 'page=register'),
 			);
 		}
 

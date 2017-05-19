@@ -32,9 +32,7 @@ class Profile_Company
 			'companies',
 			array ('*'),
 			false,
-			[
-				'c_name'
-			]
+			'c_name asc'
 		);
 
 		$o = array ();

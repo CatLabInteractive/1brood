@@ -529,6 +529,8 @@ class Pages_Order extends Pages_Page
 		{
 			print_r($v);
 			$price = floatval($v['op_amount']) * floatval($v['op_price']);
+			echo "price ";
+			var_dump($price);
 			if (isset ($userPoef[$v['plid']]))
 			{
 				$userPoef[$v['plid']] += $price;

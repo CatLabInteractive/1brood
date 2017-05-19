@@ -676,17 +676,13 @@ class Core_Tools
 
 		$mail = new \CatLab\Mailer\Models\Mail();
 
-		if (defined('MAILER_FROM')) {
+		$fromData = \Neuron\Config::get('mailer.from');
 
-			$from = new \CatLab\Mailer\Models\Contact();
-			$from->setEmail(MAILER_FROM);
-			if ($fromName) {
-				// Set name.
-				$from->setName($fromName);
-			}
+        $from = new \CatLab\Mailer\Models\Contact();
+        $from->setEmail($fromData['email']);
+        $from->setName($fromData['name']);
 
-			$mail->setFrom($from);
-		}
+        $mail->setFrom($from);
 		
 		if (isset ($fromEmail))
 		{

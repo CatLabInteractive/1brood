@@ -2,7 +2,10 @@
 
 return array (
 
-	'from' => 'support@catlab.be',
+    'from' => array (
+        'name' => '1Brood',
+        'email' => 'noreply@catlab.eu'
+    ),
 
 	'services' => array (
 		'smtp' => array (

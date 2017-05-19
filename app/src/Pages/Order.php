@@ -602,8 +602,6 @@ class Pages_Order extends Pages_Page
 			LEFT JOIN
 				companies ON orders.c_id = companies.c_id
 			LEFT JOIN
-				players_comp ON players_comp.c_id = companies.c_id
-			LEFT JOIN
 				shops ON orders.s_id = shops.s_id
 			WHERE
 				o_id = '".((int)$id)."'

@@ -539,6 +539,8 @@ class Pages_Order extends Pages_Page
 			}
 		}
 
+		print_r($userPoef);
+
 		// Now do the actual updates
 		foreach ($userPoef as $k => $v)
 		{

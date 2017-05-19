@@ -196,6 +196,8 @@ class Core_Database
 		
 		$sql.= ' WHERE '.$where;
 
+		echo $sql;
+
 		if ($totalSets > 0)
 		{
 			$this->query ($sql);

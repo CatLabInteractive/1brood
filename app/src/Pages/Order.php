@@ -527,7 +527,8 @@ class Pages_Order extends Pages_Page
 
 		foreach ($this->getOrderedProducts ($order['o_id']) as $v)
 		{
-			$price = $v['op_amount'] * $v['op_price'];
+			print_r($v);
+			$price = floatval($v['op_amount']) * floatval($v['op_price']);
 			if (isset ($userPoef[$v['plid']]))
 			{
 				$userPoef[$v['plid']] += $price;
@@ -541,7 +542,12 @@ class Pages_Order extends Pages_Page
 		// Now do the actual updates
 		foreach ($userPoef as $k => $v)
 		{
-			$company->takeFromMemberPoefboek (Profile_Member::getMember ($k), $v, 'order', $order['o_id']);
+			$company->takeFromMemberPoefboek (
+				Profile_Member::getMember ($k),
+				$v,
+				'order',
+				$order['o_id']
+			);
 		}
 	}
 

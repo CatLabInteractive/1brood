@@ -468,6 +468,7 @@ class Profile_Company
 	public function takeFromMemberPoefboek ($objUser, $amount, $order = 'order', $orderId = false)
 	{
 		var_dump($amount);
+		var_dump(number_format($amount, 2, '.'));
 
 		$db = Core_Database::__getInstance ();
 

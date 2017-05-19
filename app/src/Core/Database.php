@@ -139,6 +139,8 @@ class Core_Database
 		$sql = "UPDATE $table SET ";
 
 		$totalSets = 0;
+
+		var_dump($data);
 		
 		foreach ($data as $k => $v)
 		{

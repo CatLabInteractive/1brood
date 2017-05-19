@@ -527,10 +527,10 @@ class Pages_Order extends Pages_Page
 
 		foreach ($this->getOrderedProducts ($order['o_id']) as $v)
 		{
-			print_r($v);
+			//print_r($v);
 			$price = floatval($v['op_amount']) * floatval($v['op_price']);
 			echo "price ";
-			var_dump($price);
+			//var_dump($price);
 			if (isset ($userPoef[$v['plid']]))
 			{
 				$userPoef[$v['plid']] += $price;
@@ -540,8 +540,6 @@ class Pages_Order extends Pages_Page
 				$userPoef[$v['plid']] = $price;
 			}
 		}
-
-		print_r($userPoef);
 
 		// Now do the actual updates
 		foreach ($userPoef as $k => $v)

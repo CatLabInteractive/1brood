@@ -467,9 +467,6 @@ class Profile_Company
 
 	public function takeFromMemberPoefboek ($objUser, $amount, $order = 'order', $orderId = false)
 	{
-		var_dump($amount);
-		var_dump(number_format($amount, 2, '.'));
-
 		$db = Core_Database::__getInstance ();
 
 		$db->update
@@ -477,7 +474,7 @@ class Profile_Company
 			'players_comp',
 			array
 			(
-				'poefboek' => '--' . number_format($amount, 2, '.')
+				'poefboek' => '--' . number_format($amount, 2, '.', '')
 			),
 			"plid = '".$objUser->getId ()."' && c_id = '".$this->getId ()."'"
 		);
@@ -517,7 +514,7 @@ class Profile_Company
 			(
 				'plid' => $objUser->getId (),
 				'c_id' => $this->getId (),
-				'l_amount' => number_format($amount, 2, '.'),
+				'l_amount' => number_format($amount, 2, '.', ''),
 				'l_newpoef' => $newAmount,
 				'l_date' => 'NOW()',
 				'l_action' => $action,

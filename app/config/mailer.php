@@ -2,7 +2,7 @@
 
 return array (
 
-	'from' => 'info@1brood.be',
+	'from' => 'support@catlab.be',
 
 	'services' => array (
 		'smtp' => array (

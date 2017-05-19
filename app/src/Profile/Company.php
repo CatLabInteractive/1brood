@@ -30,7 +30,11 @@ class Profile_Company
 		$l = $db->select
 		(
 			'companies',
-			array ('*')
+			array ('*'),
+			false,
+			[
+				'c_name'
+			]
 		);
 
 		$o = array ();

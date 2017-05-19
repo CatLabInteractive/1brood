@@ -1,6 +1,4 @@
 <?php
-$username = getenv("MANDRILL_USERNAME");
-$key = getenv("MANDRILL_KEY");
 
 return array (
 
